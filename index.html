@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Recetario</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            min-height: 100vh;
+            padding: 2rem 1rem;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-size: 2.5rem;
+        }
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 2rem;
+        }
+        .search-box {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            font-size: 1.1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 50px;
+            outline: none;
+            transition: all 0.3s ease;
+            background: white;
+            margin-bottom: 2rem;
+        }
+        .search-box:focus {
+            border-color: #e67e22;
+            box-shadow: 0 4px 15px rgba(230, 126, 34, 0.15);
+        }
+        .recipes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        .recipe-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .recipe-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        .recipe-icon {
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+        .recipe-name {
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 1.1rem;
+            word-break: break-word;
+        }
+        .loading, .error, .empty {
+            text-align: center;
+            padding: 3rem;
+            color: #7f8c8d;
+            font-size: 1.1rem;
+        }
+        .error { color: #e74c3c; }
+        .hidden { display: none !important; }
+        .count {
+            text-align: center;
+            color: #95a5a6;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🍳 Mi Recetario</h1>
+        <p class="subtitle">Todas mis recetas en un solo lugar</p>
+
+        <input type="text" 
+               class="search-box" 
+               id="searchInput" 
+               placeholder="🔍 Buscar receta..." 
+               autocomplete="off">
+
+        <div class="count" id="countLabel"></div>
+        <div id="recipesContainer">
+            <div class="loading">Cargando recetas...</div>
+        </div>
+    </div>
+
+    <script>
+        // ============================================
+        // CONFIGURACIÓN: Edita estos valores
+        // ============================================
+        const GITHUB_USER = 'JaimePascual';      // ← Tu nombre de usuario en GitHub
+        const GITHUB_REPO = 'recetas';  // ← El nombre del repositorio
+        const RECIPES_FOLDER = 'recetas';      // ← Nombre de la carpeta (cámbialo si quieres)
+        // ============================================
+
+        const container = document.getElementById('recipesContainer');
+        const searchInput = document.getElementById('searchInput');
+        const countLabel = document.getElementById('countLabel');
+        let allRecipes = [];
+
+        async function loadRecipes() {
+            try {
+                const apiUrl = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${RECIPES_FOLDER}`;
+                const response = await fetch(apiUrl);
+
+                if (!response.ok) {
+                    if (response.status === 404) {
+                        throw new Error('No se encontró la carpeta "' + RECIPES_FOLDER + '" en el repositorio. Asegúrate de que existe y de que los datos de usuario/repo son correctos.');
+                    }
+                    if (response.status === 403) {
+                        throw new Error('Límite de la API de GitHub alcanzado. Espera unos minutos y recarga.');
+                    }
+                    throw new Error('Error al cargar las recetas: ' + response.status);
+                }
+
+                const data = await response.json();
+
+                // Filtrar solo archivos .html (ignorar imágenes, README, etc.)
+                allRecipes = data.filter(item => 
+                    item.type === 'file' && item.name.endsWith('.html')
+                );
+
+                if (allRecipes.length === 0) {
+                    container.innerHTML = '<div class="empty">No hay recetas HTML en la carpeta todavía. ¡Sube algunas!</div>';
+                    return;
+                }
+
+                renderRecipes(allRecipes);
+                updateCount(allRecipes.length);
+
+            } catch (err) {
+                container.innerHTML = `<div class="error">❌ ${err.message}</div>`;
+            }
+        }
+
+        function renderRecipes(recipes) {
+            if (recipes.length === 0) {
+                container.innerHTML = '<div class="empty">No se encontraron recetas con ese nombre.</div>';
+                updateCount(0);
+                return;
+            }
+
+            const html = recipes.map(recipe => {
+                // Quitar .html del nombre para mostrar
+                const displayName = recipe.name.replace(/\.html$/i, '');
+                // Convertir guiones y guiones bajos en espacios y capitalizar
+                const prettyName = displayName
+                    .replace(/[-_]/g, ' ')
+                    .replace(/\b\w/g, l => l.toUpperCase());
+
+                return `
+                    <a href="${RECIPES_FOLDER}/${recipe.name}" class="recipe-card">
+                        <span class="recipe-icon">🍽️</span>
+                        <span class="recipe-name">${prettyName}</span>
+                    </a>
+                `;
+            }).join('');
+
+            container.innerHTML = `<div class="recipes-grid">${html}</div>`;
+            updateCount(recipes.length);
+        }
+
+        function updateCount(n) {
+            countLabel.textContent = `${n} receta${n !== 1 ? 's' : ''}`;
+        }
+
+        // Búsqueda en tiempo real
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase().trim();
+            if (!query) {
+                renderRecipes(allRecipes);
+                return;
+            }
+            const filtered = allRecipes.filter(r => 
+                r.name.toLowerCase().includes(query)
+            );
+            renderRecipes(filtered);
+        });
+
+        // Cargar al iniciar
+        loadRecipes();
+    </script>
+</body>
+</html>
