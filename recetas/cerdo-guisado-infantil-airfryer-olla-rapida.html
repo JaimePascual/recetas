@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cerdo Guisado Infantil — Airfryer + Olla Rápida</title>
+    <style>
+        :root {
+            --color-primary: #e67e22;
+            --color-primary-light: #f39c12;
+            --color-text: #2c3e50;
+            --color-text-light: #7f8c8d;
+            --color-bg: #f8f9fa;
+            --color-card: #ffffff;
+            --color-accent: #e74c3c;
+            --shadow: 0 4px 20px rgba(0,0,0,0.08);
+            --radius: 16px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            padding: 1rem;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .recipe-header {
+            text-align: center;
+            padding: 2rem 0 1.5rem;
+        }
+
+        .recipe-header h1 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            color: var(--color-text);
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .recipe-meta {
+            display: inline-flex;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            color: var(--color-text-light);
+            font-size: 0.95rem;
+            margin-top: 0.5rem;
+        }
+
+        .recipe-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--color-card);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            margin-bottom: 1.2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .card-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: var(--color-text);
+        }
+
+        .card-title .icon {
+            font-size: 1.4rem;
+        }
+
+        /* Ingredients */
+        .ingredients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 0.6rem 1.2rem;
+        }
+
+        .ingredient-item {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            padding: 0.3rem 0;
+        }
+
+        .ingredient-qty {
+            font-weight: 600;
+            color: var(--color-primary);
+            white-space: nowrap;
+            min-width: 3.5rem;
+        }
+
+        .ingredient-name {
+            color: var(--color-text);
+        }
+
+        /* Steps */
+        .step-list {
+            list-style: none;
+        }
+
+        .step-list li {
+            position: relative;
+            padding-left: 2.2rem;
+            margin-bottom: 1rem;
+            font-size: 0.97rem;
+        }
+
+        .step-list li::before {
+            content: attr(data-step);
+            position: absolute;
+            left: 0;
+            top: 0.1rem;
+            width: 1.6rem;
+            height: 1.6rem;
+            background: var(--color-primary);
+            color: white;
+            border-radius: 50%;
+            font-size: 0.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Time badges */
+        .time-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: #fff3e0;
+            color: var(--color-primary);
+            padding: 0.4rem 0.9rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin: 0.3rem 0.3rem 0.3rem 0;
+        }
+
+        .temp-badge {
+            background: #ffebee;
+            color: var(--color-accent);
+        }
+
+        /* Tips */
+        .tip-box {
+            background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%);
+            border-left: 4px solid var(--color-primary-light);
+            border-radius: 0 var(--radius) var(--radius) 0;
+            padding: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        .tip-box .tip-title {
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .tip-box p, .tip-box ul {
+            font-size: 0.95rem;
+            color: #5d4037;
+        }
+
+        .tip-box ul {
+            margin-left: 1.2rem;
+            margin-top: 0.3rem;
+        }
+
+        .tip-box li {
+            margin-bottom: 0.3rem;
+        }
+
+        /* Salsa section */
+        .salsa-mix {
+            background: #f5f5f5;
+            border-radius: 12px;
+            padding: 1rem 1.2rem;
+            margin: 0.8rem 0;
+        }
+
+        .salsa-mix ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .salsa-mix li {
+            padding: 0.25rem 0;
+            font-size: 0.95rem;
+        }
+
+        .salsa-mix li::before {
+            content: "→";
+            color: var(--color-primary);
+            margin-right: 0.5rem;
+            font-weight: 700;
+        }
+
+        /* Accompaniment */
+        .accompaniment {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .accompaniment-title {
+            font-weight: 700;
+            color: #2e7d32;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        /* Footer */
+        .recipe-footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: var(--color-text-light);
+            font-size: 0.85rem;
+        }
+
+        .recipe-footer a {
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .recipe-header h1 {
+                font-size: 1.5rem;
+            }
+            .ingredients-grid {
+                grid-template-columns: 1fr;
+            }
+            .card {
+                padding: 1.2rem;
+            }
+        }
+
+        /* Print */
+        @media print {
+            body { background: white; }
+            .card { box-shadow: none; border: 1px solid #ddd; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="recipe-header">
+            <h1>🍖 Cerdo Guisado Infantil<br><small style="font-size:1.1rem;font-weight:500;color:var(--color-text-light);">Airfryer + Olla Rápida</small></h1>
+            <div class="recipe-meta">
+                <span>👨‍🍳 4 raciones</span>
+                <span>⏱️ ~35 min total</span>
+                <span>🔥 Airfryer + Olla</span>
+            </div>
+        </header>
+
+        <!-- Ingredients -->
+        <section class="card">
+            <div class="card-title"><span class="icon">🥘</span> Ingredientes</div>
+            <div class="ingredients-grid">
+                <div class="ingredient-item"><span class="ingredient-qty">700 g</span><span class="ingredient-name">Tacos de cerdo</span></div>
+                <div class="ingredient-item"><span class="ingredient-qty">1</span><span class="ingredient-name">Cebolla</span></div>
+                <div class="ingredient-item"><span class="ingredient-qty">2</span><span class="ingredient-name">Zanahorias</span></div>
+                <div class="ingredient-item"><span class="ingredient-qty">200 g</span><span class="ingredient-name">Tomate triturado</span></div>
+                <div class="ingredient-item"><span class="ingredient-qty">1 cdta.</span><span class="ingredient-name">Mostaza suave (opcional)</span></div>
+                <div class="ingredient-item"><span class="ingredient-qty">1 cda.</span><span class="ingredient-name">Ketchup</span></div>
+                <div class="ingredient-item"><span class="ingredient-qty">1 cda.</span><span class="ingredient-name">Salsa de soja</span></div>
+                <div class="ingredient-item"><span class="ingredient-qty">1 cdta.</span><span class="ingredient-name">Miel</span></div>
+                <div class="ingredient-item"><span class="ingredient-qty">1 cdta.</span><span class="ingredient-name">Pimentón dulce</span></div>
+                <div class="ingredient-item"><span class="ingredient-qty">1 cdta.</span><span class="ingredient-name">Ajo en polvo</span></div>
+                <div class="ingredient-item"><span class="ingredient-qty">350 ml</span><span class="ingredient-name">Caldo de pollo</span></div>
+                <div class="ingredient-item"><span class="ingredient-qty">1 cda.</span><span class="ingredient-name">Maicena</span></div>
+                <div class="ingredient-item"><span class="ingredient-qty">40 g</span><span class="ingredient-name">Cheddar rallado</span></div>
+                <div class="ingredient-item"><span class="ingredient-qty">1 cda.</span><span class="ingredient-name">Aceite de oliva</span></div>
+                <div class="ingredient-item"><span class="ingredient-qty">—</span><span class="ingredient-name">Sal</span></div>
+            </div>
+        </section>
+
+        <!-- Airfryer -->
+        <section class="card">
+            <div class="card-title"><span class="icon">🌪️</span> Airfryer — Dorado del cerdo</div>
+            <ol class="step-list">
+                <li data-step="1">Mezcla el cerdo con el <strong>aceite de oliva</strong>, <strong>pimentón dulce</strong>, <strong>ajo en polvo</strong> y <strong>sal</strong>.</li>
+                <li data-step="2">
+                    Cocina en la airfryer:
+                    <div style="margin-top:0.6rem;">
+                        <span class="time-badge temp-badge">🔥 200 ºC</span>
+                        <span class="time-badge">⏱️ 8–10 minutos</span>
+                    </div>
+                </li>
+            </ol>
+            <div class="tip-box">
+                <div class="tip-title">⚠️ Ojo con el tiempo</div>
+                <p>El cerdo se dora <strong>más rápido que la ternera</strong>. Vigílalo a partir de los <strong>8 minutos</strong> para que no se pase.</p>
+            </div>
+        </section>
+
+        <!-- Olla Rápida -->
+        <section class="card">
+            <div class="card-title"><span class="icon">⚡</span> Olla Rápida — Guiso</div>
+            <ol class="step-list">
+                <li data-step="1">Sofríe la <strong>cebolla</strong> y las <strong>zanahorias trituradas</strong> durante <strong>5 minutos</strong>.</li>
+                <li data-step="2">Añade el <strong>tomate triturado</strong>, <strong>ketchup</strong>, <strong>salsa de soja</strong> y <strong>miel</strong>. Cocina <strong>2 minutos</strong>.</li>
+                <li data-step="3">Incorpora el <strong>cerdo dorado</strong> y el <strong>caldo de pollo</strong>.</li>
+                <li data-step="4">
+                    Cierra la olla y cocina a presión:
+                    <div style="margin-top:0.6rem;">
+                        <span class="time-badge">🥩 Magro de cerdo → 15 min</span>
+                        <span class="time-badge">🍖 Aguja / cabecero → 20 min</span>
+                    </div>
+                </li>
+                <li data-step="5">Despresurización <strong>natural</strong>: espera <strong>10 minutos</strong> antes de abrir.</li>
+            </ol>
+        </section>
+
+        <!-- Salsa -->
+        <section class="card">
+            <div class="card-title"><span class="icon">🧀</span> Salsa de Cheddar</div>
+            <p style="margin-bottom:0.8rem;font-size:0.97rem;">Mientras la olla despresuriza, prepara la salsa:</p>
+            <div class="salsa-mix">
+                <ul>
+                    <li>Medio vaso del caldo de la olla</li>
+                    <li>1 cucharada de maicena</li>
+                    <li>40 g de cheddar rallado</li>
+                </ul>
+            </div>
+            <ol class="step-list" style="margin-top:1rem;">
+                <li data-step="1">Mezcla bien los tres ingredientes hasta que no queden grumos.</li>
+                <li data-step="2">Devuelve la mezcla a la olla y remueve a fuego suave <strong>2–3 minutos</strong> hasta que espese.</li>
+            </ol>
+        </section>
+
+        <!-- Truco -->
+        <section class="card">
+            <div class="card-title"><span class="icon">🧒</span> Truco para que guste más a los niños</div>
+            <div class="tip-box" style="margin-top:0;">
+                <div class="tip-title">🍔 Sabor tipo hamburguesa</div>
+                <p>Añade al final de la cocción:</p>
+                <ul>
+                    <li><strong>1 cucharadita de mostaza suave</strong> (tipo Dijon suave), <strong>o</strong></li>
+                    <li><strong>1 cucharada extra de ketchup</strong></li>
+                </ul>
+                <p style="margin-top:0.5rem;">No sabrá a mostaza; simplemente potenciará el sabor tipo <strong>hamburguesa</strong> que suele triunfar con los peques.</p>
+            </div>
+        </section>
+
+        <!-- Accompaniment -->
+        <section class="card">
+            <div class="card-title"><span class="icon">🍟</span> Acompañamiento Ideal</div>
+            <p style="margin-bottom:1rem;font-size:0.97rem;">Si tienes patatas, hazlas en la airfryer mientras se cocina el cerdo:</p>
+            <div class="accompaniment">
+                <div class="accompaniment-title">🥔 Patatas en gajos</div>
+                <div style="display:flex;gap:0.6rem;flex-wrap:wrap;margin-bottom:0.8rem;">
+                    <span class="time-badge temp-badge">🔥 200 ºC</span>
+                    <span class="time-badge">⏱️ 20–25 minutos</span>
+                </div>
+                <ul style="margin-left:1.2rem;font-size:0.95rem;color:#1b5e20;">
+                    <li><strong>700 g</strong> de patata en gajos</li>
+                    <li>Un chorrito de aceite y sal</li>
+                </ul>
+            </div>
+            <p style="margin-top:1rem;font-size:0.97rem;">Sirve el cerdo encima de las patatas con la salsa y un poco de <strong>cheddar rallado</strong>. Queda muy parecido a unas <strong>"loaded fries"</strong> y suele tener mucho éxito con los niños.</p>
+        </section>
+
+        <footer class="recipe-footer">
+            <p>🍳 Receta guardada en <a href="../index.html">Mi Recetario</a></p>
+        </footer>
+    </div>
+</body>
+</html>
