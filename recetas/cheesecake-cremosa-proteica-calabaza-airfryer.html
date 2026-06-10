@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheesecake Tarta Cremosa Proteica de Calabaza — Airfryer</title>
+    <style>
+        :root {
+            --color-primary: #e67e22;
+            --color-primary-light: #f39c12;
+            --color-text: #2c3e50;
+            --color-text-light: #7f8c8d;
+            --color-bg: #f8f9fa;
+            --color-card: #ffffff;
+            --color-accent: #e74c3c;
+            --shadow: 0 4px 20px rgba(0,0,0,0.08);
+            --radius: 16px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            padding: 1rem;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .recipe-header {
+            text-align: center;
+            padding: 2rem 0 1.5rem;
+        }
+
+        .recipe-header h1 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            color: var(--color-text);
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .recipe-meta {
+            display: inline-flex;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            color: var(--color-text-light);
+            font-size: 0.95rem;
+            margin-top: 0.5rem;
+        }
+
+        .recipe-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .card {
+            background: var(--color-card);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            margin-bottom: 1.2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .card-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: var(--color-text);
+        }
+
+        .card-title .icon {
+            font-size: 1.4rem;
+        }
+
+        .ingredients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 0.6rem 1.2rem;
+        }
+
+        .ingredient-item {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            padding: 0.3rem 0;
+        }
+
+        .ingredient-qty {
+            font-weight: 600;
+            color: var(--color-primary);
+            white-space: nowrap;
+            min-width: 3.5rem;
+        }
+
+        .ingredient-name {
+            color: var(--color-text);
+        }
+
+        .step-list {
+            list-style: none;
+        }
+
+        .step-list li {
+            position: relative;
+            padding-left: 2.2rem;
+            margin-bottom: 1rem;
+            font-size: 0.97rem;
+        }
+
+        .step-list li::before {
+            content: attr(data-step);
+            position: absolute;
+            left: 0;
+            top: 0.1rem;
+            width: 1.6rem;
+            height: 1.6rem;
+            background: var(--color-primary);
+            color: white;
+            border-radius: 50%;
+            font-size: 0.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .time-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: #fff3e0;
+            color: var(--color-primary);
+            padding: 0.4rem 0.9rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin: 0.3rem 0.3rem 0.3rem 0;
+        }
+
+        .temp-badge {
+            background: #ffebee;
+            color: var(--color-accent);
+        }
+
+        .tip-box {
+            background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%);
+            border-left: 4px solid var(--color-primary-light);
+            border-radius: 0 var(--radius) var(--radius) 0;
+            padding: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        .tip-box .tip-title {
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .tip-box p, .tip-box ul {
+            font-size: 0.95rem;
+            color: #5d4037;
+        }
+
+        .tip-box ul {
+            margin-left: 1.2rem;
+            margin-top: 0.3rem;
+        }
+
+        .tip-box li {
+            margin-bottom: 0.3rem;
+        }
+
+        .macros-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 0.5rem;
+        }
+
+        .macros-table th, .macros-table td {
+            padding: 0.6rem 0.8rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .macros-table th {
+            color: var(--color-text-light);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .macros-table td {
+            font-weight: 600;
+            color: var(--color-text);
+        }
+
+        .macros-table tr:last-child td {
+            border-bottom: none;
+            color: var(--color-primary);
+            font-size: 1.05rem;
+        }
+
+        .recipe-footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: var(--color-text-light);
+            font-size: 0.85rem;
+        }
+
+        .recipe-footer a {
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+
+        @media (max-width: 480px) {
+            .recipe-header h1 {
+                font-size: 1.5rem;
+            }
+            .ingredients-grid {
+                grid-template-columns: 1fr;
+            }
+            .card {
+                padding: 1.2rem;
+            }
+        }
+
+        @media print {
+            body { background: white; }
+            .card { box-shadow: none; border: 1px solid #ddd; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="recipe-header">
+            <h1>🎃 Cheesecake Tarta Cremosa Proteica<br><small style="font-size:1.1rem;font-weight:500;color:var(--color-text-light);">Calabaza — Airfryer</small></h1>
+            <div class="recipe-meta">
+                <span>🍰 1 tarta / 4 porciones</span>
+                <span>⏱️ ~23 min + reposo</span>
+                <span>🔥 Airfryer</span>
+            </div>
+        </header>
+
+        <section class="card">
+            <div class="card-title"><span class="icon">🥣</span> Ingredientes</div>
+            <div class="ingredients-grid">
+                <div class="ingredient-item"><span class="ingredient-qty">200 g</span><span class="ingredient-name">Calabaza cocida (escurrida)</span></div>
+                <div class="ingredient-item"><span class="ingredient-qty">1</span><span class="ingredient-name">Yogur hiperproteico Milbona</span></div>
+                <div class="ingredient-item"><span class="ingredient-qty">2 scoops</span><span class="ingredient-name">Proteína whey</span></div>
+                <div class="ingredient-item"><span class="ingredient-qty">2</span><span class="ingredient-name">Huevos</span></div>
+                <div class="ingredient-item"><span class="ingredient-qty">25 g</span><span class="ingredient-name">Harina de avena</span></div>
+                <div class="ingredient-item"><span class="ingredient-qty">10 g</span><span class="ingredient-name">Semillas de chía</span></div>
+                <div class="ingredient-item"><span class="ingredient-qty">—</span><span class="ingredient-name">Endulzante al gusto</span></div>
+                <div class="ingredient-item"><span class="ingredient-qty">—</span><span class="ingredient-name">Canela o vainilla (opcional)</span></div>
+            </div>
+        </section>
+
+        <section class="card">
+            <div class="card-title"><span class="icon">👨‍🍳</span> Preparación</div>
+            <ol class="step-list">
+                <li data-step="1">Tritura <strong>todos los ingredientes</strong> hasta obtener una mezcla fina y homogénea.</li>
+                <li data-step="2">Deja reposar la mezcla <strong>5–10 minutos</strong>. Es clave para que las semillas de chía hidraten y espesen.</li>
+                <li data-step="3">Vierte la mezcla en un <strong>molde pequeño (12–15 cm)</strong>.</li>
+                <li data-step="4">
+                    Cocina en la airfryer:
+                    <div style="margin-top:0.6rem;">
+                        <span class="time-badge temp-badge">🔥 160 °C</span>
+                        <span class="time-badge">⏱️ 23 minutos</span>
+                    </div>
+                </li>
+            </ol>
+        </section>
+
+        <section class="card">
+            <div class="card-title"><span class="icon">✅</span> Punto de cocción</div>
+            <p style="margin-bottom:0.8rem;font-size:0.97rem;">Al sacarla debe tener:</p>
+            <div style="display:flex;gap:0.6rem;flex-wrap:wrap;margin-bottom:1rem;">
+                <span class="time-badge">🟤 Bordes firmes</span>
+                <span class="time-badge">🟡 Centro ligeramente temblón</span>
+            </div>
+            <div class="tip-box" style="margin-top:0;">
+                <div class="tip-title">❄️ Enfriado</div>
+                <ul>
+                    <li>Deja reposar <strong>30–60 minutos fuera</strong> de la airfryer.</li>
+                    <li>Luego métela en la <strong>nevera al menos 2 horas</strong>.</li>
+                </ul>
+                <p style="margin-top:0.5rem;"><strong>👉 Resultado final:</strong> textura tipo <strong>cheesecake cremosa</strong> 🔥</p>
+            </div>
+        </section>
+
+        <section class="card">
+            <div class="card-title"><span class="icon">📊</span> Macros Totales (tarta completa)</div>
+            <table class="macros-table">
+                <tr><th>Macronutriente</th><th>Cantidad</th></tr>
+                <tr><td>🔥 Calorías</td><td>~520–550 kcal</td></tr>
+                <tr><td>💪 Proteína</td><td>~65–70 g</td></tr>
+                <tr><td>🍞 Carbohidratos</td><td>~30–35 g</td></tr>
+                <tr><td>🥑 Grasas</td><td>~14–16 g</td></tr>
+            </table>
+        </section>
+
+        <section class="card">
+            <div class="card-title"><span class="icon">🍽️</span> Por Porción (dividida en 4)</div>
+            <table class="macros-table">
+                <tr><th>Macronutriente</th><th>Cantidad</th></tr>
+                <tr><td>🔥 Calorías</td><td>~130 kcal</td></tr>
+                <tr><td>💪 Proteína</td><td>~16–18 g</td></tr>
+                <tr><td>🍞 Carbohidratos</td><td>~8 g</td></tr>
+                <tr><td>🥑 Grasas</td><td>~4 g</td></tr>
+            </table>
+        </section>
+
+        <footer class="recipe-footer">
+            <p>🍳 Receta guardada en <a href="../index.html">Mi Recetario</a></p>
+        </footer>
+    </div>
+</body>
+</html>
