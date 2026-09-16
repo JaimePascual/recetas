@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salsa Carolina Reaper Ahumada</title>
+    <style>
+        :root {
+            --color-primary: #e67e22;
+            --color-primary-light: #f39c12;
+            --color-text: #2c3e50;
+            --color-text-light: #7f8c8d;
+            --color-bg: #f8f9fa;
+            --color-card: #ffffff;
+            --color-accent: #e74c3c;
+            --shadow: 0 4px 20px rgba(0,0,0,0.08);
+            --radius: 16px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            padding: 1rem;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .recipe-header {
+            text-align: center;
+            padding: 2rem 0 1.5rem;
+        }
+
+        .recipe-header h1 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            color: var(--color-text);
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .recipe-meta {
+            display: inline-flex;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            color: var(--color-text-light);
+            font-size: 0.95rem;
+            margin-top: 0.5rem;
+        }
+
+        .recipe-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .card {
+            background: var(--color-card);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            margin-bottom: 1.2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .card-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: var(--color-text);
+        }
+
+        .card-title .icon {
+            font-size: 1.4rem;
+        }
+
+        .ingredients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 0.6rem 1.2rem;
+        }
+
+        .ingredient-item {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            padding: 0.3rem 0;
+        }
+
+        .ingredient-qty {
+            font-weight: 600;
+            color: var(--color-primary);
+            white-space: nowrap;
+            min-width: 3.5rem;
+        }
+
+        .ingredient-name {
+            color: var(--color-text);
+        }
+
+        .step-list {
+            list-style: none;
+        }
+
+        .step-list li {
+            position: relative;
+            padding-left: 2.2rem;
+            margin-bottom: 1rem;
+            font-size: 0.97rem;
+        }
+
+        .step-list li::before {
+            content: attr(data-step);
+            position: absolute;
+            left: 0;
+            top: 0.1rem;
+            width: 1.6rem;
+            height: 1.6rem;
+            background: var(--color-primary);
+            color: white;
+            border-radius: 50%;
+            font-size: 0.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .time-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: #fff3e0;
+            color: var(--color-primary);
+            padding: 0.4rem 0.9rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin: 0.3rem 0.3rem 0.3rem 0;
+        }
+
+        .temp-badge {
+            background: #ffebee;
+            color: var(--color-accent);
+        }
+
+        .tip-box {
+            background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%);
+            border-left: 4px solid var(--color-primary-light);
+            border-radius: 0 var(--radius) var(--radius) 0;
+            padding: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        .tip-box .tip-title {
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .tip-box p, .tip-box ul {
+            font-size: 0.95rem;
+            color: #5d4037;
+        }
+
+        .tip-box ul {
+            margin-left: 1.2rem;
+            margin-top: 0.3rem;
+        }
+
+        .tip-box li {
+            margin-bottom: 0.3rem;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+            border-left: 4px solid var(--color-accent);
+            border-radius: 0 var(--radius) var(--radius) 0;
+            padding: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        .highlight-box .highlight-title {
+            font-weight: 700;
+            color: var(--color-accent);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .highlight-box p, .highlight-box ul {
+            font-size: 0.95rem;
+            color: #b71c1c;
+        }
+
+        .recipe-footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: var(--color-text-light);
+            font-size: 0.85rem;
+        }
+
+        .recipe-footer a {
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+
+        @media (max-width: 480px) {
+            .recipe-header h1 {
+                font-size: 1.5rem;
+            }
+            .ingredients-grid {
+                grid-template-columns: 1fr;
+            }
+            .card {
+                padding: 1.2rem;
+            }
+        }
+
+        @media print {
+            body { background: white; }
+            .card { box-shadow: none; border: 1px solid #ddd; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="recipe-header">
+            <h1>🌶️🔥 Salsa Carolina Reaper Ahumada</h1>
+            <div class="recipe-meta">
+                <span>🍶 ~250–300 ml</span>
+                <span>🔥🔥🔥🔥🔥 Extrema</span>
+                <span>🥄 Gotero</span>
+            </div>
+        </header>
+
+        <section class="card">
+            <div class="card-title"><span class="icon">🥣</span> Ingredientes</div>
+            <div class="ingredients-grid">
+                <div class="ingredient-item"><span class="ingredient-qty">3–5 g</span><span class="ingredient-name">Carolina Reaper seco</span></div>
+                <div class="ingredient-item"><span class="ingredient-qty">180 g</span><span class="ingredient-name">Pimiento rojo</span></div>
+                <div class="ingredient-item"><span class="ingredient-qty">25 g</span><span class="ingredient-name">Cebolla</span></div>
+                <div class="ingredient-item"><span class="ingredient-qty">1</span><span class="ingredient-name">Diente de ajo</span></div>
+                <div class="ingredient-item"><span class="ingredient-qty">80 ml</span><span class="ingredient-name">Vinagre de manzana</span></div>
+                <div class="ingredient-item"><span class="ingredient-qty">40–50 ml</span><span class="ingredient-name">Agua</span></div>
+                <div class="ingredient-item"><span class="ingredient-qty">5 g</span><span class="ingredient-name">Sal</span></div>
+                <div class="ingredient-item"><span class="ingredient-qty">8–12 g</span><span class="ingredient-name">Eritritol</span></div>
+                <div class="ingredient-item"><span class="ingredient-qty">10 ml</span><span class="ingredient-name">Zumo de limón</span></div>
+                <div class="ingredient-item"><span class="ingredient-qty">1 cdta.</span><span class="ingredient-name">Pimentón ahumado (2–3 g)</span></div>
+                <div class="ingredient-item"><span class="ingredient-qty">¼ cdta.</span><span class="ingredient-name">Comino</span></div>
+            </div>
+            <div class="highlight-box" style="margin-top:1rem;">
+                <div class="highlight-title">⚠️ Advertencia</div>
+                <p>Empieza con <strong>3 g de Reaper seco</strong>. Si tus pimientos han quedado completamente deshidratados, <strong>5 g en esta cantidad de salsa puede ser una barbaridad</strong>.</p>
+            </div>
+        </section>
+
+        <section class="card">
+            <div class="card-title"><span class="icon">🔥</span> Preparación</div>
+
+            <div class="step-list">
+                <div style="margin-bottom:1.5rem;">
+                    <div style="display:flex;align-items:center;gap:0.8rem;margin-bottom:0.8rem;">
+                        <div style="width:1.6rem;height:1.6rem;background:var(--color-primary);color:white;border-radius:50%;font-size:0.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">1</div>
+                        <div style="font-weight:700;font-size:1.05rem;">Hidrata los Reaper</div>
+                    </div>
+                    <div style="padding-left:2.4rem;">
+                        <p>Pon los Reaper secos en un recipiente con parte del <strong>agua caliente</strong> durante unos <strong>15–20 minutos</strong>.</p>
+                        <p style="margin-top:0.4rem;"><strong>No tires todavía el agua de hidratación</strong>: puedes utilizar una pequeña cantidad posteriormente, aunque tendrá bastante capsaicina.</p>
+                    </div>
+                </div>
+
+                <div style="margin-bottom:1.5rem;">
+                    <div style="display:flex;align-items:center;gap:0.8rem;margin-bottom:0.8rem;">
+                        <div style="width:1.6rem;height:1.6rem;background:var(--color-primary);color:white;border-radius:50%;font-size:0.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">2</div>
+                        <div style="font-weight:700;font-size:1.05rem;">Ahúma / asa el pimiento</div>
+                    </div>
+                    <div style="padding-left:2.4rem;">
+                        <p>Aquí está <strong>la gracia de la receta</strong>.</p>
+                        <p style="margin-top:0.4rem;">Corta los <strong>180 g de pimiento rojo</strong> en trozos grandes y ásalos hasta que tengan zonas bastante tostadas / quemadas.</p>
+                        <p style="margin-top:0.4rem;">Puedes hacerlo:</p>
+                        <ul style="margin-left:1.2rem;margin-top:0.3rem;font-size:0.95rem;">
+                            <li>Directamente sobre una <strong>plancha / sartén muy caliente</strong>;</li>
+                            <li>Al <strong>horno a 220–240 °C</strong>, hasta que aparezcan zonas negras;</li>
+                            <li>O, si tienes <strong>barbacoa</strong>, sobre las brasas.</li>
+                        </ul>
+                        <p style="margin-top:0.5rem;">No queremos convertirlos en carbón 😂; buscamos <strong>piel tostada y sabor ahumado</strong>.</p>
+                    </div>
+                </div>
+
+                <div style="margin-bottom:1.5rem;">
+                    <div style="display:flex;align-items:center;gap:0.8rem;margin-bottom:0.8rem;">
+                        <div style="width:1.6rem;height:1.6rem;background:var(--color-primary);color:white;border-radius:50%;font-size:0.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">3</div>
+                        <div style="font-weight:700;font-size:1.05rem;">Cocina la base</div>
+                    </div>
+                    <div style="padding-left:2.4rem;">
+                        <p>Pon en un cazo:</p>
+                        <ul style="margin-left:1.2rem;margin-top:0.3rem;font-size:0.95rem;">
+                            <li>Pimiento asado</li>
+                            <li>Cebolla</li>
+                            <li>Ajo</li>
+                            <li>Vinagre</li>
+                            <li>Agua</li>
+                            <li>Sal</li>
+                        </ul>
+                        <p style="margin-top:0.5rem;">Cocina unos <strong>10 minutos a fuego suave</strong>.</p>
+                    </div>
+                </div>
+
+                <div style="margin-bottom:1.5rem;">
+                    <div style="display:flex;align-items:center;gap:0.8rem;margin-bottom:0.8rem;">
+                        <div style="width:1.6rem;height:1.6rem;background:var(--color-primary);color:white;border-radius:50%;font-size:0.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">4</div>
+                        <div style="font-weight:700;font-size:1.05rem;">Añade el Reaper</div>
+                    </div>
+                    <div style="padding-left:2.4rem;">
+                        <p>Incorpora los <strong>Reaper hidratados</strong> y cocina otros <strong>5 minutos</strong>.</p>
+                        <p style="margin-top:0.4rem;">Añade también el <strong>pimentón ahumado</strong> y el <strong>comino</strong>.</p>
+                    </div>
+                </div>
+
+                <div style="margin-bottom:1.5rem;">
+                    <div style="display:flex;align-items:center;gap:0.8rem;margin-bottom:0.8rem;">
+                        <div style="width:1.6rem;height:1.6rem;background:var(--color-primary);color:white;border-radius:50%;font-size:0.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">5</div>
+                        <div style="font-weight:700;font-size:1.05rem;">Tritura</div>
+                    </div>
+                    <div style="padding-left:2.4rem;">
+                        <p>Tritura muy bien hasta obtener una <strong>salsa completamente homogénea</strong>.</p>
+                        <p style="margin-top:0.4rem;">Añade:</p>
+                        <ul style="margin-left:1.2rem;margin-top:0.3rem;font-size:0.95rem;">
+                            <li>Zumo de limón</li>
+                            <li>Eritritol</li>
+                        </ul>
+                        <p style="margin-top:0.4rem;">Y vuelve a triturar.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <div class="card-title"><span class="icon">🥄</span> Ajuste Final</div>
+            <p style="margin-bottom:1rem;font-size:0.97rem;">Aquí puedes dejarla exactamente a tu gusto:</p>
+            <div class="tip-box" style="margin-top:0;">
+                <div class="tip-title">🌶️ Demasiado picante</div>
+                <p>Añade más <strong>pimiento rojo asado</strong>.</p>
+            </div>
+            <div class="tip-box">
+                <div class="tip-title">🍋 Demasiado ácida</div>
+                <p>Un poco más de <strong>eritritol</strong>.</p>
+            </div>
+            <div class="tip-box">
+                <div class="tip-title">🍬 Demasiado dulce</div>
+                <p>Más <strong>vinagre</strong>.</p>
+            </div>
+            <div class="tip-box">
+                <div class="tip-title">🥣 Demasiado espesa</div>
+                <p><strong>Agua o vinagre</strong>, poco a poco.</p>
+            </div>
+            <div class="tip-box">
+                <div class="tip-title">🔥 Más sabor ahumado</div>
+                <p>Aumenta el <strong>pimentón ahumado a 4–5 g</strong>.</p>
+            </div>
+            <div class="tip-box">
+                <div class="tip-title">🌶️ Más "Reaper puro"</div>
+                <p>Añade otro <strong>0,5–1 g de Reaper hidratado</strong>.</p>
+            </div>
+        </section>
+
+        <section class="card">
+            <div class="card-title"><span class="icon">🍬</span> Un Detalle con el Eritritol</div>
+            <div class="tip-box" style="margin-top:0;">
+                <div class="tip-title">🎯 No solo endulza</div>
+                <p>No lo utilizaría únicamente para "endulzar". En esta receta tiene una función bastante buena: <strong>redondear el golpe del vinagre y del Reaper</strong> sin aportar prácticamente calorías.</p>
+                <p style="margin-top:0.5rem;">Empieza con <strong>8 g</strong>, prueba y sube hasta <strong>12 g</strong> si lo necesitas. No me iría mucho más allá porque entonces empezará a notarse demasiado el efecto refrescante del eritritol.</p>
+            </div>
+        </section>
+
+        <section class="card">
+            <div class="card-title"><span class="icon">🧊</span> Conservación</div>
+            <p style="margin-bottom:0.8rem;font-size:0.97rem;">Como vas a hacer tandas pequeñas, una vez fría la guardaría en un <strong>frasco limpio en la nevera</strong>.</p>
+            <p style="font-size:0.97rem;">Si haces más de lo que vas a consumir en unas semanas, <strong>congélala en pequeñas porciones</strong>.</p>
+        </section>
+
+        <section class="card">
+            <div class="card-title"><span class="icon">💡</span> Idea Final</div>
+            <div class="tip-box" style="margin-top:0;">
+                <div class="tip-title">🔥🌶️ Dos tipos de ahumado</div>
+                <p>Una idea que puede quedar incluso mejor: hacer la salsa con <strong>2 tipos de ahumado</strong>, pimiento rojo asado + pimentón ahumado, <strong>pero sin ahumar directamente el Carolina Reaper</strong>.</p>
+                <p style="margin-top:0.5rem;">Así mantienes el <strong>aroma característico del Reaper</strong> y consigues el sabor ahumado sin que todo sepa a pimentón.</p>
+            </div>
+        </section>
+
+        <footer class="recipe-footer">
+            <p>🍳 Receta guardada en <a href="../index.html">Mi Recetario</a></p>
+        </footer>
+    </div>
+</body>
+</html>
