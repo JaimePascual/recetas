@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🍲 Caldo de cocido</title>
+<style>
+  :root {
+    --bg: #f7f4ef;
+    --card: #ffffff;
+    --text: #2b2b2b;
+    --muted: #6b6b6b;
+    --accent: #9c3d1e;
+    --accent-light: #f7e6dd;
+    --warn: #fff8e1;
+    --warn-border: #f0c36d;
+    --tip: #e8f4fd;
+    --tip-border: #64b5f6;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    padding: 24px 16px;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+  .card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  }
+  h1 { font-size: 1.7rem; margin-bottom: 8px; }
+  h2 { font-size: 1.25rem; margin-bottom: 14px; color: var(--accent); }
+  h3 { color: var(--accent); margin-bottom: 6px; }
+  .badge {
+    display: inline-block;
+    background: var(--accent-light);
+    color: var(--accent);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin: 4px 6px 4px 0;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+  }
+  th, td { padding: 9px 12px; text-align: left; border-bottom: 1px solid #eee5da; }
+  th { background: var(--accent-light); color: var(--accent); }
+  tr:last-child td { border-bottom: none; }
+  ol.steps { counter-reset: step; list-style: none; }
+  ol.steps li {
+    counter-increment: step;
+    position: relative;
+    padding: 10px 0 10px 52px;
+  }
+  ol.steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0; top: 10px;
+    width: 34px; height: 34px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+  }
+  ol.steps li strong { color: var(--accent); }
+  .cook-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 12px;
+  }
+  .cook-box {
+    border: 2px solid var(--accent-light);
+    border-radius: 12px;
+    padding: 16px;
+  }
+  .cook-box .time { font-size: 1.4rem; font-weight: 800; color: var(--accent); }
+  .note {
+    background: var(--warn);
+    border-left: 4px solid var(--warn-border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-size: 0.95rem;
+  }
+  .tip {
+    background: var(--tip);
+    border-left: 4px solid var(--tip-border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-size: 0.95rem;
+  }
+  .small { font-size: 0.85rem; color: var(--muted); }
+  @media (max-width: 560px) {
+    .cook-grid { grid-template-columns: 1fr; }
+    .card { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- CABECERA -->
+  <div class="card">
+    <h1>🍲 Caldo de cocido</h1>
+    <span class="badge">🥄 Receta tradicional</span>
+    <span class="badge">🌙 Remojo nocturno</span>
+    <span class="badge">⏱️ 45 min olla / 2-3 h cazuela</span>
+    <p style="margin-top:12px; color:var(--muted);">
+      El caldo clásico de los garbanzos del cocido madrileño, con chorizo, hueso de jamón y carne para darle todo el sabor.
+    </p>
+  </div>
+
+  <!-- INGREDIENTES -->
+  <div class="card">
+    <h2>🧾 Ingredientes</h2>
+    <table>
+      <tr><th>Ingrediente</th></tr>
+      <tr><td>🫘 Garbanzos</td></tr>
+      <tr><td>🌿 Puerro</td></tr>
+      <tr><td>🧅 Cebolla</td></tr>
+      <tr><td>🥔 Patata</td></tr>
+      <tr><td>🥕 Zanahoria</td></tr>
+      <tr><td>🌶️ Pimentón</td></tr>
+      <tr><td>🧊 2 pastillas Avecrem de carne</td></tr>
+      <tr><td>🍖 Chorizo</td></tr>
+      <tr><td>🦴 Hueso de jamón</td></tr>
+      <tr><td>🥩 Carne</td></tr>
+    </table>
+    <div class="note">
+      🧂 <strong>Sal:</strong> si te gusta salado, añade sal a tu gusto. Si no, con la sal de las pastillas y del hueso de jamón es suficiente.
+    </div>
+  </div>
+
+  <!-- PREPARACIÓN -->
+  <div class="card">
+    <h2>👨‍🍳 Preparación</h2>
+    <ol class="steps">
+      <li><strong>Remojo.</strong> Pon los garbanzos a remojo la noche anterior.</li>
+      <li><strong>A la olla.</strong> Al día siguiente, incorpora todo a la olla: garbanzos escurridos, puerro, cebolla, patata, zanahoria, pimentón, pastillas, chorizo, hueso de jamón y carne.</li>
+      <li><strong>Cocer.</strong> Elige tu método:
+        <div class="cook-grid">
+          <div class="cook-box">
+            <h3>⚡ Olla rápida o programable</h3>
+            <p class="time">45 min</p>
+            <p class="small">Alta presión 45 minutos.</p>
+          </div>
+          <div class="cook-box">
+            <h3>🍳 Cazuela</h3>
+            <p class="time">2-3 h</p>
+            <p class="small">Fuego lento hasta que los garbanzos estén blandos.</p>
+          </div>
+        </div>
+      </li>
+    </ol>
+    <div class="tip">
+      ✅ Punto de cocción: los garbanzos deben quedar <strong>blandos</strong>. Si usas cazuela, ve comprobando a partir de las 2 horas.
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
