@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🍕 Pizza hiperproteica de cottage, soja y claras</title>
+<style>
+  :root {
+    --bg: #f7f4ef;
+    --card: #ffffff;
+    --text: #2b2b2b;
+    --muted: #6b6b6b;
+    --accent: #c0392b;
+    --accent-light: #fbe7e3;
+    --protein: #2e7d32;
+    --warn: #fff8e1;
+    --warn-border: #f0c36d;
+    --tip: #e8f4fd;
+    --tip-border: #64b5f6;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    padding: 24px 16px;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+  .card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  }
+  h1 { font-size: 1.7rem; margin-bottom: 8px; }
+  h2 { font-size: 1.25rem; margin-bottom: 14px; color: var(--accent); }
+  h3 { color: var(--accent); margin-bottom: 6px; }
+  .badge {
+    display: inline-block;
+    background: var(--accent-light);
+    color: var(--accent);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin: 4px 6px 4px 0;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+  }
+  th, td { padding: 9px 12px; text-align: left; border-bottom: 1px solid #eee5da; }
+  th { background: var(--accent-light); color: var(--accent); }
+  tr.total td { border-bottom: none; font-weight: 700; background: #fdf3f1; }
+  ol.steps { counter-reset: step; list-style: none; }
+  ol.steps li {
+    counter-increment: step;
+    position: relative;
+    padding: 10px 0 10px 52px;
+  }
+  ol.steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0; top: 10px;
+    width: 34px; height: 34px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+  }
+  ol.steps li strong { color: var(--accent); }
+  .macro-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 12px;
+    margin-top: 12px;
+  }
+  .macro-box {
+    border-radius: 12px;
+    padding: 14px;
+    text-align: center;
+    color: #fff;
+  }
+  .macro-box .num { font-size: 1.3rem; font-weight: 800; display: block; }
+  .macro-box .lbl { font-size: 0.78rem; opacity: 0.92; }
+  .kcal { background: #e8590c; }
+  .prot { background: var(--protein); }
+  .carb { background: #1971c2; }
+  .fat  { background: #f08c00; }
+  .note {
+    background: var(--warn);
+    border-left: 4px solid var(--warn-border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-size: 0.95rem;
+  }
+  .tip {
+    background: var(--tip);
+    border-left: 4px solid var(--tip-border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-size: 0.95rem;
+  }
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .col-box {
+    border: 2px solid var(--accent-light);
+    border-radius: 12px;
+    padding: 16px;
+  }
+  .col-box ul { list-style: none; }
+  .col-box li {
+    padding: 6px 0;
+    border-bottom: 1px dashed #eee;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: 0.93rem;
+  }
+  .col-box li:last-child { border-bottom: none; }
+  .col-box .qty { color: var(--muted); white-space: nowrap; font-weight: 600; }
+  .small { font-size: 0.85rem; color: var(--muted); }
+  @media (max-width: 560px) {
+    .two-col { grid-template-columns: 1fr; }
+    .card { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- CABECERA -->
+  <div class="card">
+    <h1>🍕 Pizza hiperproteica de cottage, soja y claras</h1>
+    <span class="badge">⚖️ 640 g horneada</span>
+    <span class="badge">💪 ~100 g proteína</span>
+    <span class="badge">🔥 ~116 kcal / 100 g</span>
+    <p style="margin-top:12px; color:var(--muted);">
+      Una base muy rica en proteína, ligera y con una textura firme que permite <strong>comer la pizza con la mano</strong>.
+    </p>
+  </div>
+
+  <!-- INGREDIENTES -->
+  <div class="card">
+    <h2>🛒 Ingredientes</h2>
+    <div class="two-col">
+      <div class="col-box">
+        <h3>🫓 Base</h3>
+        <ul>
+          <li><span>Queso cottage 0% Proteína Plus Carrefour</span><span class="qty">200 g</span></li>
+          <li><span>Claras de huevo</span><span class="qty">200 g</span></li>
+          <li><span>Soja texturizada Luengo</span><span class="qty">60 g</span></li>
+          <li><span>Maicena</span><span class="qty">10 g</span></li>
+          <li><span>Ajo en polvo</span><span class="qty">al gusto</span></li>
+          <li><span>Orégano</span><span class="qty">al gusto</span></li>
+          <li><span>Sal y pimienta</span><span class="qty">al gusto</span></li>
+        </ul>
+      </div>
+      <div class="col-box">
+        <h3>🍖 Toppings</h3>
+        <ul>
+          <li><span>Jamón cocido extra</span><span class="qty">50 g</span></li>
+          <li><span>Tomate natural</span><span class="qty">200 g</span></li>
+          <li><span>Champiñones</span><span class="qty">85 g</span></li>
+          <li><span>Tomate frito Hacendado c/ AOVE (≈5 cucharadas)</span><span class="qty">60 g</span></li>
+          <li><span>Mozzarella Milbona</span><span class="qty">30 g</span></li>
+          <li><span>Pimientos asados</span><span class="qty">100 g</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- PREPARACIÓN -->
+  <div class="card">
+    <h2>👨‍🍳 Preparación</h2>
+    <ol class="steps">
+      <li><strong>Preparar la soja.</strong> Poner los 60 g de soja texturizada en un recipiente, cubrir con agua caliente y dejar hidratar 10 minutos. Escurrir muy bien y presionar con las manos o con un colador para eliminar la mayor cantidad posible de agua. <em>Este paso es importante: cuanto mejor se escurra la soja, más firme quedará la base.</em></li>
+      <li><strong>Preparar la masa.</strong> Poner en un recipiente 200 g de cottage y 200 g de claras, y triturar hasta conseguir una mezcla homogénea. Añadir la soja bien escurrida, 10 g de maicena, ajo en polvo, orégano, sal y pimienta. Mezclar muy bien y dejar reposar 5–10 minutos para que la soja y la maicena absorban parte de la humedad. La mezcla debe quedar espesa, pero todavía extendible con una espátula.</li>
+      <li><strong>Primera cocción de la base.</strong> Precalentar el horno a 200 °C, calor arriba y abajo. Colocar papel de horno sobre una bandeja y extender la mezcla formando un círculo de aproximadamente 28–30 cm, con un grosor de 5–7 mm. Hornear a 200 °C durante 15–18 minutos, hasta que la superficie esté firme y ligeramente dorada.</li>
+      <li><strong>Secar y reforzar la base.</strong> Sacar la bandeja, dar la vuelta a la base con cuidado y hornear otros 5 minutos a 200 °C. Este segundo horneado ayuda a eliminar humedad y hace que la base aguante mucho mejor los toppings.</li>
+      <li><strong>Añadir los toppings.</strong> Extender los 60 g de tomate frito y añadir el tomate natural, los champiñones, el jamón cocido y los pimientos asados. Terminar repartiendo los 30 g de mozzarella.</li>
+      <li><strong>Horneado final.</strong> Subir el horno a 220 °C y hornear unos 8–10 minutos, hasta que la mozzarella esté fundida, los bordes dorados, la parte inferior firme y los toppings hayan perdido parte de su humedad. Dejar reposar 2–3 minutos antes de cortar.</li>
+    </ol>
+    <div class="tip">
+      🔑 <strong>El secreto de la base firme:</strong> escurrir muy bien la soja y no saltarte el segundo horneado de 5 minutos. Es lo que permite comer la pizza con la mano.
+    </div>
+  </div>
+
+  <!-- INFO NUTRICIONAL: BASE -->
+  <div class="card">
+    <h2>📊 Información nutricional — Base</h2>
+    <table>
+      <tr><th>Ingrediente</th><th>Cantidad</th><th>kcal</th><th>Proteína</th><th>HC</th><th>Grasas</th></tr>
+      <tr><td>Cottage 0%</td><td>200 g</td><td>136</td><td>24 g</td><td>9 g</td><td>0,2 g</td></tr>
+      <tr><td>Claras</td><td>200 g</td><td>≈96</td><td>≈21 g</td><td>≈1 g</td><td>≈0,2 g</td></tr>
+      <tr><td>Soja Luengo</td><td>60 g</td><td>217</td><td>30 g</td><td>7,8 g</td><td>5,3 g</td></tr>
+      <tr><td>Maicena</td><td>10 g</td><td>≈36</td><td>0 g</td><td>8,8 g</td><td>0 g</td></tr>
+      <tr class="total"><td>TOTAL BASE</td><td>470 g*</td><td>≈485 kcal</td><td>≈75 g</td><td>≈26,6 g</td><td>≈5,9 g</td></tr>
+    </table>
+    <p class="small">*El peso de la mezcla antes de hornear no coincide con el peso final debido a la pérdida de agua.</p>
+
+    <h2 style="margin-top:22px;">📊 Información nutricional — Toppings</h2>
+    <table>
+      <tr><th>Ingrediente</th><th>Cantidad</th><th>kcal aprox.</th></tr>
+      <tr><td>Jamón cocido extra</td><td>50 g</td><td>≈50</td></tr>
+      <tr><td>Tomate natural</td><td>200 g</td><td>≈36</td></tr>
+      <tr><td>Champiñones</td><td>85 g</td><td>≈19</td></tr>
+      <tr><td>Tomate frito Hacendado</td><td>60 g</td><td>≈46</td></tr>
+      <tr><td>Mozzarella Milbona</td><td>30 g</td><td>≈75</td></tr>
+      <tr><td>Pimientos asados</td><td>100 g</td><td>33</td></tr>
+      <tr class="total"><td>TOTAL TOPPINGS</td><td>525 g</td><td>≈259 kcal</td></tr>
+    </table>
+  </div>
+
+  <!-- RESULTADO FINAL -->
+  <div class="card">
+    <h2>🔥 Resultado final</h2>
+    <p>Peso de la pizza una vez terminada: <strong>640 g</strong></p>
+    <h3 style="margin-top:16px;">🍕 Pizza completa</h3>
+    <div class="macro-grid">
+      <div class="macro-box kcal"><span class="num">≈744</span><span class="lbl">🔥 kcal</span></div>
+      <div class="macro-box prot"><span class="num">≈100 g</span><span class="lbl">💪 proteína</span></div>
+      <div class="macro-box carb"><span class="num">≈50 g</span><span class="lbl">🍞 hidratos</span></div>
+      <div class="macro-box fat"><span class="num">≈19 g</span><span class="lbl">🥑 grasa</span></div>
+    </div>
+  </div>
+
+  <!-- POR 100 G -->
+  <div class="card">
+    <h2>📊 Por 100 g de pizza terminada</h2>
+    <table>
+      <tr><th>Por 100 g</th><th>Cantidad</th></tr>
+      <tr><td>🔥 Calorías</td><td>≈116 kcal</td></tr>
+      <tr><td>💪 Proteína</td><td>≈15,7 g</td></tr>
+      <tr><td>🍞 Hidratos</td><td>≈7,8 g</td></tr>
+      <tr><td>🥑 Grasas</td><td>≈3,0 g</td></tr>
+    </table>
+  </div>
+
+  <!-- RACIONES -->
+  <div class="card">
+    <h2>🍕 Raciones</h2>
+    <table>
+      <tr><th>Cantidad de pizza</th><th>kcal</th><th>Proteína</th></tr>
+      <tr><td>160 g</td><td>≈186 kcal</td><td>≈25 g</td></tr>
+      <tr><td>200 g</td><td>≈232 kcal</td><td>≈31 g</td></tr>
+      <tr><td>320 g (½ pizza)</td><td>≈372 kcal</td><td>≈50 g</td></tr>
+      <tr class="total"><td>640 g (pizza entera)</td><td>≈744 kcal</td><td>≈100 g</td></tr>
+    </table>
+    <div class="note">
+      📌 <strong>Nota:</strong> las cifras finales son aproximadas porque no tenemos la información nutricional exacta de las etiquetas del jamón, mozzarella y algunos vegetales. El cálculo sí utiliza datos exactos para el cottage, la soja Luengo y los pimientos.
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
