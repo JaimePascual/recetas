@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎃 Crema de calabaza y skyr hiperproteica para pizza</title>
+<style>
+  :root {
+    --bg: #f7f4ef;
+    --card: #ffffff;
+    --text: #2b2b2b;
+    --muted: #6b6b6b;
+    --accent: #b05a12;
+    --accent-light: #fbeedd;
+    --protein: #2e7d32;
+    --warn: #fff8e1;
+    --warn-border: #f0c36d;
+    --tip: #e8f4fd;
+    --tip-border: #64b5f6;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    padding: 24px 16px;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+  .card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  }
+  h1 { font-size: 1.7rem; margin-bottom: 8px; }
+  h2 { font-size: 1.25rem; margin-bottom: 14px; color: var(--accent); }
+  h3 { color: var(--accent); margin-bottom: 6px; }
+  .badge {
+    display: inline-block;
+    background: var(--accent-light);
+    color: var(--accent);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin: 4px 6px 4px 0;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+  }
+  th, td { padding: 9px 12px; text-align: left; border-bottom: 1px solid #eee5da; }
+  th { background: var(--accent-light); color: var(--accent); }
+  tr:last-child td { border-bottom: none; font-weight: 700; background: #fdf7f0; }
+  ol.steps { counter-reset: step; list-style: none; }
+  ol.steps li {
+    counter-increment: step;
+    position: relative;
+    padding: 10px 0 10px 52px;
+  }
+  ol.steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0; top: 10px;
+    width: 34px; height: 34px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+  }
+  ol.steps li strong { color: var(--accent); }
+  .macro-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 12px;
+    margin-top: 12px;
+  }
+  .macro-box {
+    border-radius: 12px;
+    padding: 14px;
+    text-align: center;
+    color: #fff;
+  }
+  .macro-box .num { font-size: 1.3rem; font-weight: 800; display: block; }
+  .macro-box .lbl { font-size: 0.78rem; opacity: 0.92; }
+  .kcal { background: #e8590c; }
+  .prot { background: var(--protein); }
+  .carb { background: #1971c2; }
+  .fat  { background: #f08c00; }
+  .note {
+    background: var(--warn);
+    border-left: 4px solid var(--warn-border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-size: 0.95rem;
+  }
+  .tip {
+    background: var(--tip);
+    border-left: 4px solid var(--tip-border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-size: 0.95rem;
+  }
+  .combo {
+    border: 2px solid var(--accent-light);
+    border-radius: 12px;
+    padding: 16px;
+  }
+  .combo ul { list-style: none; }
+  .combo li {
+    padding: 6px 0;
+    border-bottom: 1px dashed #eee;
+    font-size: 0.93rem;
+  }
+  .combo li:last-child { border-bottom: none; }
+  .small { font-size: 0.85rem; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- CABECERA -->
+  <div class="card">
+    <h1>🎃 Crema de calabaza y skyr hiperproteica para pizza</h1>
+    <span class="badge">🍕 Salsa para pizza</span>
+    <span class="badge">💪 ~26 g proteína</span>
+    <span class="badge">🔥 ~40 kcal / 100 g</span>
+    <p style="margin-top:12px; color:var(--muted);">
+      Una salsa cremosa de calabaza asada con skyr 0%: ligera, hiperproteica y con la textura perfecta para sustituir al tomate en tu pizza.
+    </p>
+  </div>
+
+  <!-- INGREDIENTES -->
+  <div class="card">
+    <h2>🧾 Ingredientes</h2>
+    <table>
+      <tr><th>Ingrediente</th><th>Cantidad</th></tr>
+      <tr><td>🎃 Calabaza limpia</td><td>400 g</td></tr>
+      <tr><td>🥣 Skyr natural 0%</td><td>200 g</td></tr>
+      <tr><td>🧅 Cebolla</td><td>50 g</td></tr>
+      <tr><td>🧄 Ajo (1 diente)</td><td>5 g</td></tr>
+      <tr><td>🧀 Parmesano rallado</td><td>5 g</td></tr>
+      <tr><td>🌶️ Pimentón dulce</td><td>½ cucharadita</td></tr>
+      <tr><td>🌑 Pimienta negra</td><td>al gusto</td></tr>
+      <tr><td>🌰 Nuez moscada</td><td>1 pizca</td></tr>
+      <tr><td>🧂 Sal</td><td>al gusto</td></tr>
+      <tr><td>💧 Agua <span class="small">(solo si fuera necesario)</span></td><td>10–20 g</td></tr>
+    </table>
+  </div>
+
+  <!-- PREPARACIÓN -->
+  <div class="card">
+    <h2>👨‍🍳 Preparación</h2>
+    <ol class="steps">
+      <li><strong>Asar la calabaza.</strong> Corta la calabaza en trozos y ásala a 200 ºC durante 25–35 minutos, hasta que esté muy tierna y ligeramente tostada. <em>Es preferible asarla que cocerla porque perderá menos agua y tendrá mucho más sabor.</em></li>
+      <li><strong>Cebolla y ajo.</strong> Cocina la cebolla y el ajo en una sartén con un poco de agua hasta que estén blandos. También puedes utilizar 5 g de aceite si quieres potenciar el sabor, aunque no es necesario.</li>
+      <li><strong>Triturar.</strong> Tritura la calabaza junto con la cebolla y el ajo hasta obtener una crema espesa.</li>
+      <li><strong>Añadir el skyr.</strong> Deja que la mezcla se temple unos minutos y añade los 200 g de skyr.</li>
+      <li><strong>Especias y parmesano.</strong> Incorpora el parmesano, pimentón, pimienta, nuez moscada y sal. Tritura de nuevo hasta conseguir una salsa completamente lisa.</li>
+      <li><strong>Ajustar la textura.</strong> Debe quedar más espesa que una crema de verduras y aproximadamente como una salsa de tomate concentrada. Si está demasiado espesa, añade agua poco a poco.</li>
+    </ol>
+  </div>
+
+  <!-- USO EN PIZZA -->
+  <div class="card">
+    <h2>🍕 Para utilizarla en pizza</h2>
+    <p>Para una pizza de <strong>28–30 cm</strong> utilizaría aproximadamente <strong>100–120 g de salsa</strong>.</p>
+    <div class="combo" style="margin-top:14px;">
+      <h3>✨ Combinación especialmente buena</h3>
+      <ul>
+        <li>🎃 100–120 g de crema de calabaza y skyr</li>
+        <li>🧀 50–70 g de mozzarella</li>
+        <li>🥓 50–60 g de bacon</li>
+        <li>🧀 Un poco de parmesano</li>
+        <li>🌑 Pimienta negra</li>
+        <li>🌶️ Opcional: chile o unas gotas de aceite picante al salir del horno</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- VALORES NUTRICIONALES -->
+  <div class="card">
+    <h2>📊 Valores nutricionales aproximados</h2>
+    <p class="small" style="margin-bottom:12px;">Con valores medios de los ingredientes:</p>
+    <table>
+      <tr><th>Nutriente</th><th>Receta completa</th><th>Por 100 g</th></tr>
+      <tr><td>🔥 Calorías</td><td>~260 kcal</td><td>~40 kcal</td></tr>
+      <tr><td>💪 Proteína</td><td>~26 g</td><td>~4,0 g</td></tr>
+      <tr><td>🍞 Carbohidratos</td><td>~39 g</td><td>~6,0 g</td></tr>
+      <tr><td>🥑 Grasas</td><td>~3,5 g</td><td>~0,5 g</td></tr>
+    </table>
+    <div class="macro-grid">
+      <div class="macro-box kcal"><span class="num">~260</span><span class="lbl">🔥 kcal totales</span></div>
+      <div class="macro-box prot"><span class="num">~26 g</span><span class="lbl">💪 proteína total</span></div>
+      <div class="macro-box carb"><span class="num">~39 g</span><span class="lbl">🍞 HC totales</span></div>
+      <div class="macro-box fat"><span class="num">~3,5 g</span><span class="lbl">🥑 grasa total</span></div>
+    </div>
+    <div class="note">
+      ⚖️ El peso final puede variar bastante según cuánto agua pierda la calabaza al asarse, así que para calcular con precisión tus macros <strong>lo ideal es pesar la salsa terminada</strong> y usar ese peso para repartir los valores de la receta completa.
+    </div>
+    <div class="tip">
+      🧮 <strong>Ejemplo:</strong> si obtienes 650 g de salsa terminada, cada 100 g serían aproximadamente <strong>40 kcal y 4 g de proteína</strong>.
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
