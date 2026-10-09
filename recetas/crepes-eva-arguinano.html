@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🥞 Crepes caseros (receta de Eva Arguiñano)</title>
+<style>
+  :root {
+    --bg: #f7f4ef;
+    --card: #ffffff;
+    --text: #2b2b2b;
+    --muted: #6b6b6b;
+    --accent: #c07a2b;
+    --accent-light: #fbeedd;
+    --protein: #2e7d32;
+    --warn: #fff8e1;
+    --warn-border: #f0c36d;
+    --tip: #e8f4fd;
+    --tip-border: #64b5f6;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    padding: 24px 16px;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+  .card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  }
+  h1 { font-size: 1.7rem; margin-bottom: 8px; }
+  h2 { font-size: 1.25rem; margin-bottom: 14px; color: var(--accent); }
+  h3 { color: var(--accent); margin-bottom: 6px; }
+  .badge {
+    display: inline-block;
+    background: var(--accent-light);
+    color: var(--accent);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin: 4px 6px 4px 0;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+  }
+  th, td { padding: 9px 12px; text-align: left; border-bottom: 1px solid #eee5da; }
+  th { background: var(--accent-light); color: var(--accent); }
+  tr:last-child td { border-bottom: none; font-weight: 700; background: #fdf7f0; }
+  ol.steps { counter-reset: step; list-style: none; }
+  ol.steps li {
+    counter-increment: step;
+    position: relative;
+    padding: 10px 0 10px 52px;
+  }
+  ol.steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0; top: 10px;
+    width: 34px; height: 34px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+  }
+  ol.steps li strong { color: var(--accent); }
+  .macro-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 12px;
+    margin-top: 12px;
+  }
+  .macro-box {
+    border-radius: 12px;
+    padding: 14px;
+    text-align: center;
+    color: #fff;
+  }
+  .macro-box .num { font-size: 1.3rem; font-weight: 800; display: block; }
+  .macro-box .lbl { font-size: 0.78rem; opacity: 0.92; }
+  .kcal { background: #e8590c; }
+  .prot { background: var(--protein); }
+  .carb { background: #1971c2; }
+  .fat  { background: #f08c00; }
+  .note {
+    background: var(--warn);
+    border-left: 4px solid var(--warn-border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-size: 0.95rem;
+  }
+  .tip {
+    background: var(--tip);
+    border-left: 4px solid var(--tip-border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-size: 0.95rem;
+  }
+  .small { font-size: 0.85rem; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- CABECERA -->
+  <div class="card">
+    <h1>🥞 Crepes caseros — Receta de Eva Arguiñano</h1>
+    <span class="badge">🍳 Sartén</span>
+    <span class="badge">⚖️ ~552 g de masa</span>
+    <span class="badge">🔥 ~1201 kcal</span>
+    <p style="margin-top:12px; color:var(--muted);">
+      La masa clásica de crepes finos y tiernos, lista para rellenar dulce o salado.
+    </p>
+  </div>
+
+  <!-- INGREDIENTES -->
+  <div class="card">
+    <h2>🧾 Ingredientes</h2>
+    <table>
+      <tr><th>Ingrediente</th><th>Cantidad</th></tr>
+      <tr><td>Harina</td><td>125 g</td></tr>
+      <tr><td>Huevos</td><td>2 uds</td></tr>
+      <tr><td>Leche</td><td>250 ml</td></tr>
+      <tr><td>Mantequilla</td><td>50 g</td></tr>
+      <tr><td>Azúcar</td><td>5 g</td></tr>
+      <tr><td>Sal</td><td>1 pizca</td></tr>
+      <tr><td>Mantequilla (para la sartén)</td><td>1 cucharadita</td></tr>
+    </table>
+  </div>
+
+  <!-- ELABORACIÓN -->
+  <div class="card">
+    <h2>👨‍🍳 Elaboración de la masa, paso a paso</h2>
+    <ol class="steps">
+      <li><strong>Funde la mantequilla.</strong> Introdúcela en el microondas durante 30-40 segundos y añádela al vaso de la batidora.</li>
+      <li><strong>Añade los líquidos.</strong> Incorpora al vaso el resto de ingredientes líquidos: la leche y los huevos.</li>
+      <li><strong>Incorpora los secos.</strong> Añade la harina, el azúcar y la sal.</li>
+      <li><strong>Tritura y cuela.</strong> Tritura todos los ingredientes hasta conseguir una crema y pasa la mezcla por un colador para eliminar cualquier grumo. También puedes mezclarlos a mano con las varillas.</li>
+      <li><strong>Prepara la sartén.</strong> Pon un poco de mantequilla en una sartén antiadherente. Calienta a fuego medio y espera a que se funda.</li>
+      <li><strong>Extiende la masa.</strong> Vierte un poco de masa en el centro y extiéndela bien por toda la sartén para que queden crepes finos.</li>
+      <li><strong>Cocina y repite.</strong> Cuando el crepe empiece a cuajarse, dale la vuelta y cocina brevemente por el otro lado. Cuando esté hecho, retíralo a un plato. Repite el proceso hasta terminar toda la masa.</li>
+    </ol>
+    <div class="tip">
+      💡 Pasa la masa por el colador aunque la hayas triturado bien: es el truco para unos crepes lisos, sin grumos.
+    </div>
+  </div>
+
+  <!-- INFO NUTRICIONAL -->
+  <div class="card">
+    <h2>📊 Información nutricional</h2>
+    <h3>🍽️ Total de la receta</h3>
+    <div class="macro-grid">
+      <div class="macro-box kcal"><span class="num">~1201</span><span class="lbl">🔥 kcal</span></div>
+      <div class="macro-box prot"><span class="num">~35,3 g</span><span class="lbl">💪 proteína</span></div>
+      <div class="macro-box carb"><span class="num">~113,2 g</span><span class="lbl">🍞 carbohidratos</span></div>
+      <div class="macro-box fat"><span class="num">~64,7 g</span><span class="lbl">🥑 grasas</span></div>
+    </div>
+
+    <h3 style="margin-top:24px;">📊 Por 100 g</h3>
+    <table>
+      <tr><th>Por 100 g</th><th>Cantidad</th></tr>
+      <tr><td>🔥 Calorías</td><td>~218 kcal</td></tr>
+      <tr><td>💪 Proteína</td><td>~6,4 g</td></tr>
+      <tr><td>🍞 Carbohidratos</td><td>~20,5 g</td></tr>
+      <tr><td>🥑 Grasas</td><td>~11,7 g</td></tr>
+    </table>
+    <div class="note">
+      ⚖️ Cálculo realizado con valores medios: harina (364 kcal/100 g), huevo entero (143 kcal/100 g), leche entera (61 kcal/100 g), mantequilla (750 kcal/100 g) y azúcar (394 kcal/100 g). Se estima un peso final de masa de ~552 g (125 g harina + ~110 g huevo sin cáscara + ~257 g leche + 55 g mantequilla + 5 g azúcar). Las cifras pueden variar ligeramente según las marcas utilizadas.
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
