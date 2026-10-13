@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🥞 Crepes de cottage (sin harina)</title>
+<style>
+  :root {
+    --bg: #f7f4ef;
+    --card: #ffffff;
+    --text: #2b2b2b;
+    --muted: #6b6b6b;
+    --accent: #c07a2b;
+    --accent-light: #fbeedd;
+    --protein: #2e7d32;
+    --warn: #fff8e1;
+    --warn-border: #f0c36d;
+    --tip: #e8f4fd;
+    --tip-border: #64b5f6;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    padding: 24px 16px;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+  .card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  }
+  h1 { font-size: 1.7rem; margin-bottom: 8px; }
+  h2 { font-size: 1.25rem; margin-bottom: 14px; color: var(--accent); }
+  h3 { color: var(--accent); margin-bottom: 6px; }
+  .badge {
+    display: inline-block;
+    background: var(--accent-light);
+    color: var(--accent);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin: 4px 6px 4px 0;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+  }
+  th, td { padding: 9px 12px; text-align: left; border-bottom: 1px solid #eee5da; }
+  th { background: var(--accent-light); color: var(--accent); }
+  tr:last-child td { border-bottom: none; font-weight: 700; background: #fdf7f0; }
+  ol.steps { counter-reset: step; list-style: none; }
+  ol.steps li {
+    counter-increment: step;
+    position: relative;
+    padding: 10px 0 10px 52px;
+  }
+  ol.steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0; top: 10px;
+    width: 34px; height: 34px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+  }
+  ol.steps li strong { color: var(--accent); }
+  .macro-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 12px;
+    margin-top: 12px;
+  }
+  .macro-box {
+    border-radius: 12px;
+    padding: 14px;
+    text-align: center;
+    color: #fff;
+  }
+  .macro-box .num { font-size: 1.3rem; font-weight: 800; display: block; }
+  .macro-box .lbl { font-size: 0.78rem; opacity: 0.92; }
+  .kcal { background: #e8590c; }
+  .prot { background: var(--protein); }
+  .carb { background: #1971c2; }
+  .fat  { background: #f08c00; }
+  .note {
+    background: var(--warn);
+    border-left: 4px solid var(--warn-border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-size: 0.95rem;
+  }
+  .tip {
+    background: var(--tip);
+    border-left: 4px solid var(--tip-border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-size: 0.95rem;
+  }
+  .fill-box {
+    border: 2px solid var(--accent-light);
+    border-radius: 12px;
+    padding: 16px;
+  }
+  .fill-box ul { list-style: none; }
+  .fill-box li {
+    padding: 6px 0;
+    border-bottom: 1px dashed #eee;
+    font-size: 0.93rem;
+  }
+  .fill-box li:last-child { border-bottom: none; }
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  @media (max-width: 560px) { .two-col { grid-template-columns: 1fr; } }
+  .small { font-size: 0.85rem; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- CABECERA -->
+  <div class="card">
+    <h1>🥞 Crepes de cottage (sin harina)</h1>
+    <span class="badge">🧀 Sin harina</span>
+    <span class="badge">💪 30,9 g proteína</span>
+    <span class="badge">🔥 208 kcal</span>
+    <span class="badge">⚖️ ~250 g de mezcla</span>
+    <p style="margin-top:12px; color:var(--muted);">
+      Crepes de solo 2 ingredientes: queso cottage proteico y huevo. Perfectos como base salada para rellenar con proteína y verduras.
+    </p>
+  </div>
+
+  <!-- INGREDIENTES -->
+  <div class="card">
+    <h2>🧾 Ingredientes</h2>
+    <table>
+      <tr><th>Ingrediente</th><th>Cantidad</th></tr>
+      <tr><td>🧀 Queso cottage Proteína Sensation Carrefour</td><td>200 g (1 tarrina)</td></tr>
+      <tr><td>🥚 Huevo mediano <span class="small">(~60 g con cáscara / ~50 g comestibles)</span></td><td>1 ud</td></tr>
+      <tr><td>🧄 Ajo en polvo</td><td>al gusto</td></tr>
+      <tr><td>🧅 Cebolla en polvo</td><td>al gusto</td></tr>
+      <tr><td>🌑 Pimienta y especias</td><td>al gusto</td></tr>
+    </table>
+  </div>
+
+  <!-- PREPARACIÓN -->
+  <div class="card">
+    <h2>👨‍🍳 Preparación</h2>
+    <ol class="steps">
+      <li><strong>Mezcla.</strong> En un bol, junta el cottage (1 tarrina completa de 200 g), el huevo batido y las especias: ajo en polvo, cebolla en polvo, pimienta y lo que quieras añadir.</li>
+      <li><strong>Bate todo.</strong> Bate bien hasta conseguir una mezcla homogénea tipo masa de crepe.</li>
+      <li><strong>Extiende.</strong> Vierte la mezcla sobre papel de horno y extiéndela con una espátula formando una capa fina y uniforme.</li>
+      <li><strong>Hornea.</strong> Introduce en el horno precalentado (o freidora aire) y cocina hasta que esté cuajado y ligeramente dorado (180 grados 25 minutos).</li>
+      <li><strong>Rellena.</strong> Retira, añade el relleno que prefieras y enrolla o dobla como un crepe. ¡A disfrutar!</li>
+    </ol>
+  </div>
+
+  <!-- INFO NUTRICIONAL -->
+  <div class="card">
+    <h2>📊 Ingredientes y valores nutricionales</h2>
+    <table>
+      <tr><th>Ingrediente</th><th>kcal</th><th>Proteínas</th><th>Hidratos</th><th>Grasas</th></tr>
+      <tr><td>Cottage 0% (200 g)</td><td>136</td><td>24,6 g</td><td>9,0 g</td><td>0,2 g</td></tr>
+      <tr><td>Huevo M (50 g comestibles)</td><td>72</td><td>6,3 g</td><td>0,4 g</td><td>4,8 g</td></tr>
+      <tr><td>TOTAL RECETA</td><td>208</td><td>30,9 g</td><td>9,4 g</td><td>5,0 g</td></tr>
+    </table>
+
+    <h3 style="margin-top:22px;">🍽️ Totales de la receta</h3>
+    <div class="macro-grid">
+      <div class="macro-box kcal"><span class="num">208</span><span class="lbl">🔥 kcal</span></div>
+      <div class="macro-box prot"><span class="num">30,9 g</span><span class="lbl">💪 proteínas</span></div>
+      <div class="macro-box carb"><span class="num">9,4 g</span><span class="lbl">🍞 hidratos</span></div>
+      <div class="macro-box fat"><span class="num">5,0 g</span><span class="lbl">🥑 grasas</span></div>
+    </div>
+
+    <h3 style="margin-top:24px;">📊 Valores por cada 100 g</h3>
+    <p class="small" style="margin-bottom:12px;">El peso inicial aproximado de la mezcla es de <strong>250 g, antes de cocinar</strong>. Para calcular los valores por 100 g una vez hechos los crepes, habría que pesarlos, porque durante la cocción pierden agua.</p>
+    <table>
+      <tr><th>Nutriente</th><th>Por 100 g de mezcla cruda</th></tr>
+      <tr><td>🔥 Calorías</td><td>83 kcal</td></tr>
+      <tr><td>💪 Proteínas</td><td>12,4 g</td></tr>
+      <tr><td>🍞 Hidratos de carbono</td><td>3,8 g</td></tr>
+      <tr><td>🥑 Grasas</td><td>2,0 g</td></tr>
+    </table>
+    <div class="note">
+      ⚖️ Los valores por 100 g corresponden a la <strong>mezcla cruda</strong>. Al hornearse, los crepes pierden agua y concentran nutrientes: las kcal por 100 g del producto final serán algo mayores, aunque el total de la receta no cambia.
+    </div>
+  </div>
+
+  <!-- RELLENOS -->
+  <div class="card">
+    <h2>🥗 Rellenos recomendados</h2>
+    <p style="margin-bottom:12px;">Sobre el crepe, añade pechuga de pollo o pavo (al menos 90% carne) y elige varias verduras:</p>
+    <div class="two-col">
+      <div class="fill-box">
+        <h3>💪 Proteína</h3>
+        <ul>
+          <li>🍗 Pechuga de pollo</li>
+          <li>🦃 Pechuga de pavo</li>
+        </ul>
+      </div>
+      <div class="fill-box">
+        <h3>🥬 Verduras</h3>
+        <ul>
+          <li>🥬 Lechuga</li>
+          <li>🌿 Rúcula</li>
+          <li>🍅 Tomate</li>
+          <li>🫑 Pimiento</li>
+          <li>🍄 Champiñones</li>
+          <li>🥑 Aguacate</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tip">
+      💡 No hace falta usarlo todo: elige <strong>2-4 verduras</strong> según lo que tengas en casa. El aguacate añade grasas saludables pero también calorías, úsalo con moderación si estás en déficit.
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
