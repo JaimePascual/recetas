@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🌶️ Salsa Carolina Reaper casera (estilo Tropical Sun)</title>
+<style>
+  :root {
+    --bg: #f7f4ef;
+    --card: #ffffff;
+    --text: #2b2b2b;
+    --muted: #6b6b6b;
+    --accent: #c0392b;
+    --accent-light: #fbe7e3;
+    --warn: #fff8e1;
+    --warn-border: #f0c36d;
+    --alert: #fdecea;
+    --alert-border: #e74c3c;
+    --tip: #e8f4fd;
+    --tip-border: #64b5f6;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    padding: 24px 16px;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+  .card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  }
+  h1 { font-size: 1.7rem; margin-bottom: 8px; }
+  h2 { font-size: 1.25rem; margin-bottom: 14px; color: var(--accent); }
+  h3 { color: var(--accent); margin-bottom: 6px; }
+  .badge {
+    display: inline-block;
+    background: var(--accent-light);
+    color: var(--accent);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin: 4px 6px 4px 0;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+  }
+  th, td { padding: 9px 12px; text-align: left; border-bottom: 1px solid #eee5da; }
+  th { background: var(--accent-light); color: var(--accent); }
+  tr:last-child td { border-bottom: none; }
+  ol.steps { counter-reset: step; list-style: none; }
+  ol.steps li {
+    counter-increment: step;
+    position: relative;
+    padding: 10px 0 10px 52px;
+  }
+  ol.steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0; top: 10px;
+    width: 34px; height: 34px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+  }
+  ol.steps li strong { color: var(--accent); }
+  .note {
+    background: var(--warn);
+    border-left: 4px solid var(--warn-border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-size: 0.95rem;
+  }
+  .alert {
+    background: var(--alert);
+    border-left: 4px solid var(--alert-border);
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin: 14px 0;
+    font-size: 0.95rem;
+  }
+  .alert h3 { color: var(--alert-border); margin-bottom: 8px; }
+  .tip {
+    background: var(--tip);
+    border-left: 4px solid var(--tip-border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-size: 0.95rem;
+  }
+  .small { font-size: 0.85rem; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- CABECERA -->
+  <div class="card">
+    <h1>🌶️ Salsa Carolina Reaper casera</h1>
+    <span class="badge">🔥🔥🔥🔥🔥 Extremadamente picante</span>
+    <span class="badge">🫙 ~250 ml</span>
+    <span class="badge">🍯 Perfil afrutado y ácido</span>
+    <p style="margin-top:12px; color:var(--muted);">
+      Imitación casera de la <strong>Carolina Reaper salsa picante de Tropical Sun</strong>. Recrea su perfil afrutado, ácido y extremadamente picante con ingredientes naturales.
+    </p>
+  </div>
+
+  <!-- REFERENCIA COMERCIAL -->
+  <div class="card">
+    <h2>🏪 El producto original</h2>
+    <p>Los ingredientes comerciales de la Tropical Sun son: <strong>chiles Carolina Reaper (60%)</strong>, agua, azúcar de caña, vinagre, sal, cebolla, limas, ajo y un toque de goma xantana como espesante.</p>
+    <p style="margin-top:8px;">Esta receta casera imita ese equilibrio entre lo afrutado, lo ácido y el golpe de picante extremo del Reaper.</p>
+  </div>
+
+  <!-- INGREDIENTES -->
+  <div class="card">
+    <h2>🛒 Ingredientes</h2>
+    <table>
+      <tr><th>Ingrediente</th><th>Cantidad</th></tr>
+      <tr><td>🌶️ Chiles Carolina Reaper frescos o deshidratados</td><td>2-4 uds <span class="small">(según tolerancia)</span></td></tr>
+      <tr><td>🍶 Vinagre blanco o de manzana</td><td>½ taza</td></tr>
+      <tr><td>💧 Agua</td><td>½ taza</td></tr>
+      <tr><td>🍬 Azúcar de caña, azúcar moreno o eritritol</td><td>2 cucharadas</td></tr>
+      <tr><td>🧄 Ajo picado</td><td>2 dientes</td></tr>
+      <tr><td>🧅 Cebolla blanca picada</td><td>¼ uds</td></tr>
+      <tr><td>🍈 Jugo de lima</td><td>½ lima</td></tr>
+      <tr><td>🧂 Sal</td><td>1 cucharadita</td></tr>
+    </table>
+    <div class="alert">
+      <h3>🔴 ¡Precaución con el Carolina Reaper! 🔴</h3>
+      <p>Utiliza <strong>guantes</strong> al manipular los chiles y evita tocarte la cara u los ojos. El Carolina Reaper es uno de los chiles más picantes del mundo: empieza con 2 chiles y sube la cantidad solo si tu tolerancia lo permite.</p>
+    </div>
+  </div>
+
+  <!-- PREPARACIÓN -->
+  <div class="card">
+    <h2>🍳 Preparación paso a paso</h2>
+    <ol class="steps">
+      <li><strong>Sofreír los aromáticos.</strong> En una cacerola pequeña con unas gotas de aceite, cocina la cebolla y el ajo a fuego medio durante 3-4 minutos hasta que estén suaves y transparentes.</li>
+      <li><strong>Agregar los chiles.</strong> Retira los tallos de los Carolina Reaper y córtalos por la mitad. Añádelos a la cacerola junto con la cebolla y el ajo. Cocina 2 minutos más.</li>
+      <li><strong>Líquidos y sazón.</strong> Incorpora el agua, el vinagre, el azúcar y la sal. Mezcla bien y lleva a ebullición. En cuanto empiece a hervir, baja el fuego al mínimo, tapa la cacerola y deja hervir a fuego lento durante 10-15 minutos, hasta que los chiles se ablanden por completo.</li>
+      <li><strong>Triturar.</strong> Deja enfriar la mezcla unos minutos. Pásala a una licuadora o procesador de alimentos, añade el jugo de lima y tritura hasta obtener una textura completamente lisa y homogénea.</li>
+      <li><strong>Embotellar.</strong> Vierte la salsa en un frasco de vidrio previamente esterilizado. Déjala reposar en la nevera antes de usar: el sabor se asentará y mejorará al día siguiente.</li>
+    </ol>
+  </div>
+
+  <!-- CONSEJOS -->
+  <div class="card">
+    <h2>💡 Consejos y conservación</h2>
+    <div class="tip">
+      ⏳ <strong>Paciencia:</strong> la salsa mejora notablemente al día siguiente, cuando los sabores se asientan. Si puedes, prepárala con antelación.
+    </div>
+    <div class="note">
+      🌾 <strong>Variante light:</strong> usa eritritol en lugar de azúcar para una versión sin calorías del dulzor que equilibra el vinagre y el picante.
+    </div>
+    <div class="note">
+      🫙 <strong>Conservación:</strong> guarda la salsa en la nevera en un frasco de vidrio esterilizado y bien cerrado. El vinagre actúa como conservante natural, pero conviene consumirla en unas semanas.
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
