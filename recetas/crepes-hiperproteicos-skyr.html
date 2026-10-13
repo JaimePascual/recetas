@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🥞 Crepes caseros hiperproteicos con skyr</title>
+<style>
+  :root {
+    --bg: #f7f4ef;
+    --card: #ffffff;
+    --text: #2b2b2b;
+    --muted: #6b6b6b;
+    --accent: #c07a2b;
+    --accent-light: #fbeedd;
+    --protein: #2e7d32;
+    --warn: #fff8e1;
+    --warn-border: #f0c36d;
+    --tip: #e8f4fd;
+    --tip-border: #64b5f6;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    padding: 24px 16px;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+  .card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  }
+  h1 { font-size: 1.7rem; margin-bottom: 8px; }
+  h2 { font-size: 1.25rem; margin-bottom: 14px; color: var(--accent); }
+  h3 { color: var(--accent); margin-bottom: 6px; }
+  .badge {
+    display: inline-block;
+    background: var(--accent-light);
+    color: var(--accent);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin: 4px 6px 4px 0;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+  }
+  th, td { padding: 9px 12px; text-align: left; border-bottom: 1px solid #eee5da; }
+  th { background: var(--accent-light); color: var(--accent); }
+  tr:last-child td { border-bottom: none; font-weight: 700; background: #fdf7f0; }
+  ol.steps { counter-reset: step; list-style: none; }
+  ol.steps li {
+    counter-increment: step;
+    position: relative;
+    padding: 10px 0 10px 52px;
+  }
+  ol.steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0; top: 10px;
+    width: 34px; height: 34px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+  }
+  ol.steps li strong { color: var(--accent); }
+  .macro-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 12px;
+    margin-top: 12px;
+  }
+  .macro-box {
+    border-radius: 12px;
+    padding: 14px;
+    text-align: center;
+    color: #fff;
+  }
+  .macro-box .num { font-size: 1.3rem; font-weight: 800; display: block; }
+  .macro-box .lbl { font-size: 0.78rem; opacity: 0.92; }
+  .kcal { background: #e8590c; }
+  .prot { background: var(--protein); }
+  .carb { background: #1971c2; }
+  .fat  { background: #f08c00; }
+  .note {
+    background: var(--warn);
+    border-left: 4px solid var(--warn-border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-size: 0.95rem;
+  }
+  .tip {
+    background: var(--tip);
+    border-left: 4px solid var(--tip-border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-size: 0.95rem;
+  }
+  .flour-box {
+    border: 2px solid var(--accent-light);
+    border-radius: 12px;
+    padding: 16px;
+  }
+  .flour-box ul { list-style: none; }
+  .flour-box li {
+    padding: 8px 0;
+    border-bottom: 1px dashed #eee;
+    font-size: 0.93rem;
+  }
+  .flour-box li:last-child { border-bottom: none; }
+  .small { font-size: 0.85rem; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- CABECERA -->
+  <div class="card">
+    <h1>🥞 Crepes caseros hiperproteicos con skyr</h1>
+    <span class="badge">🍳 Sartén</span>
+    <span class="badge">💪 73 g proteína</span>
+    <span class="badge">🔥 510 kcal totales</span>
+    <span class="badge">🌱 Bajos en grasa</span>
+    <p style="margin-top:12px; color:var(--muted);">
+      Crepes bajos en grasa, ricos en proteínas y con muy pocas calorías para ser una receta de este tipo. Ideales para desayunos, meriendas o para preparar un postre proteico.
+    </p>
+  </div>
+
+  <!-- INGREDIENTES -->
+  <div class="card">
+    <h2>🧾 Ingredientes</h2>
+    <table>
+      <tr><th>Ingrediente</th><th>Cantidad</th></tr>
+      <tr><td>Harina de trigo, maicena o harina de avena</td><td>50 g</td></tr>
+      <tr><td>Proteína whey de vainilla</td><td>40 g</td></tr>
+      <tr><td>Claras de huevo</td><td>200 g</td></tr>
+      <tr><td>Skyr natural 0%</td><td>150 g</td></tr>
+      <tr><td>Edulcorante</td><td>al gusto</td></tr>
+      <tr><td>Sal</td><td>1 pizca</td></tr>
+      <tr><td>Aceite de oliva en spray (para la sartén)</td><td>1 g</td></tr>
+    </table>
+
+    <div class="flour-box" style="margin-top:16px;">
+      <h3>🌾 ¿Qué harina elegir?</h3>
+      <p class="small" style="margin-bottom:8px;">Puedes utilizar cualquiera de estas tres opciones sin que las calorías totales cambien significativamente:</p>
+      <ul>
+        <li><strong>Harina de trigo:</strong> opción equilibrada, con una textura similar a la de los crepes tradicionales y una masa fácil de manejar.</li>
+        <li><strong>Maicena (almidón de maíz):</strong> proporciona crepes más suaves y delicados. Pueden romperse con mayor facilidad, por lo que conviene cocinarlos con cuidado.</li>
+        <li><strong>Harina de avena:</strong> aporta un ligero sabor a cereal, algo más de fibra y una textura más consistente, que puede resultar más saciante.</li>
+      </ul>
+      <p class="small" style="margin-top:8px;">La elección dependerá principalmente de la textura que prefieras, ya que las diferencias nutricionales son pequeñas.</p>
+    </div>
+  </div>
+
+  <!-- PREPARACIÓN -->
+  <div class="card">
+    <h2>👨‍🍳 Preparación</h2>
+    <ol class="steps">
+      <li>Introduce <strong>todos los ingredientes, excepto el aceite</strong>, en el vaso batidor.</li>
+      <li>Tritura hasta conseguir una masa homogénea y sin grumos.</li>
+      <li>Deja reposar la mezcla durante 5-10 minutos.</li>
+      <li>Si la masa queda demasiado espesa, añade un poco de agua hasta conseguir una consistencia fluida que permita extenderla fácilmente por la sartén.</li>
+      <li>Calienta una sartén antiadherente a fuego medio y aplica una cantidad mínima de aceite en spray.</li>
+      <li>Vierte una pequeña cantidad de masa y mueve la sartén para extenderla en una capa fina.</li>
+      <li>Cocina hasta que los bordes comiencen a despegarse y la superficie esté suficientemente cuajada. Dale la vuelta con cuidado y cocina unos segundos más.</li>
+      <li>Repite el proceso hasta terminar toda la masa.</li>
+    </ol>
+    <div class="tip">
+      ⚠️ <strong>Consejo:</strong> evita el fuego demasiado alto. La proteína whey puede hacer que los crepes se resequen si se cocinan durante demasiado tiempo.
+    </div>
+  </div>
+
+  <!-- INFO NUTRICIONAL -->
+  <div class="card">
+    <h2>📊 Información nutricional aproximada</h2>
+    <p class="small" style="margin-bottom:12px;">Valores estimados para toda la receta, utilizando harina de trigo, whey de vainilla, claras de huevo, skyr 0% y aproximadamente 1 g de aceite.</p>
+    <h3>🍽️ Receta completa</h3>
+    <div class="macro-grid">
+      <div class="macro-box kcal"><span class="num">510</span><span class="lbl">🔥 kcal</span></div>
+      <div class="macro-box prot"><span class="num">73 g</span><span class="lbl">💪 proteínas</span></div>
+      <div class="macro-box carb"><span class="num">49 g</span><span class="lbl">🍞 carbohidratos</span></div>
+      <div class="macro-box fat"><span class="num">5,5 g</span><span class="lbl">🥑 grasas</span></div>
+    </div>
+
+    <h3 style="margin-top:24px;">📊 Por 100 g</h3>
+    <p class="small" style="margin-bottom:12px;">Calculada sobre un peso estimado de 441 g de masa cruda, incluido el aceite.</p>
+    <table>
+      <tr><th>Nutriente</th><th>Por 100 g</th></tr>
+      <tr><td>🔥 Calorías</td><td>116 kcal</td></tr>
+      <tr><td>💪 Proteínas</td><td>16,6 g</td></tr>
+      <tr><td>🍞 Carbohidratos</td><td>11,1 g</td></tr>
+      <tr><td>🥑 Grasas</td><td>1,2 g</td></tr>
+    </table>
+    <div class="note">
+      📌 Los valores son aproximados y pueden variar según las marcas utilizadas, especialmente la proteína whey y el skyr. Los datos por 100 g corresponden a la <strong>masa cruda</strong>; después de cocinar, el peso disminuye por la evaporación del agua y las calorías por 100 g aumentan, aunque las calorías totales de la receta prácticamente no cambian.
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
