@@ -1,0 +1,55 @@
+
+name: Actualizar índice de recetas
+
+on:
+  push:
+    paths:
+      - 'recetas/*.html'
+      - '.github/workflows/generar-indice.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  actualizar-indice:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Generar lista de recetas
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          carpeta = Path("recetas")
+          recetas = sorted(
+              archivo.name
+              for archivo in carpeta.glob("*.html")
+              if archivo.is_file()
+          )
+
+          Path("recetas.json").write_text(
+              json.dumps(recetas, ensure_ascii=False, indent=2) + "\n",
+              encoding="utf-8"
+          )
+
+          print(f"Índice generado: {len(recetas)} recetas")
+          PY
+
+      - name: Guardar índice actualizado
+        run: |
+          if git diff --quiet -- recetas.json; then
+            echo "El índice ya está actualizado."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add recetas.json
+          git commit -m "Actualizar índice de recetas"
+          git push
