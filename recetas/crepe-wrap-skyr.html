@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🥞 Crepe-wrap con skyr</title>
+<style>
+  :root {
+    --bg: #f7f4ef;
+    --card: #ffffff;
+    --text: #2b2b2b;
+    --muted: #6b6b6b;
+    --accent: #c07a2b;
+    --accent-light: #fbeedd;
+    --protein: #2e7d32;
+    --warn: #fff8e1;
+    --warn-border: #f0c36d;
+    --tip: #e8f4fd;
+    --tip-border: #64b5f6;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    padding: 24px 16px;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+  .card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  }
+  h1 { font-size: 1.7rem; margin-bottom: 8px; }
+  h2 { font-size: 1.25rem; margin-bottom: 14px; color: var(--accent); }
+  h3 { color: var(--accent); margin-bottom: 6px; }
+  .badge {
+    display: inline-block;
+    background: var(--accent-light);
+    color: var(--accent);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin: 4px 6px 4px 0;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+  }
+  th, td { padding: 9px 12px; text-align: left; border-bottom: 1px solid #eee5da; }
+  th { background: var(--accent-light); color: var(--accent); }
+  tr:last-child td { border-bottom: none; font-weight: 700; background: #fdf7f0; }
+  ol.steps { counter-reset: step; list-style: none; }
+  ol.steps li {
+    counter-increment: step;
+    position: relative;
+    padding: 10px 0 10px 52px;
+  }
+  ol.steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0; top: 10px;
+    width: 34px; height: 34px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+  }
+  ol.steps li strong { color: var(--accent); }
+  .macro-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 12px;
+    margin-top: 12px;
+  }
+  .macro-box {
+    border-radius: 12px;
+    padding: 14px;
+    text-align: center;
+    color: #fff;
+  }
+  .macro-box .num { font-size: 1.3rem; font-weight: 800; display: block; }
+  .macro-box .lbl { font-size: 0.78rem; opacity: 0.92; }
+  .kcal { background: #e8590c; }
+  .prot { background: var(--protein); }
+  .carb { background: #1971c2; }
+  .fat  { background: #f08c00; }
+  .note {
+    background: var(--warn);
+    border-left: 4px solid var(--warn-border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-size: 0.95rem;
+  }
+  .tip {
+    background: var(--tip);
+    border-left: 4px solid var(--tip-border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-size: 0.95rem;
+  }
+  .small { font-size: 0.85rem; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- CABECERA -->
+  <div class="card">
+    <h1>🥞 Crepe-wrap con skyr</h1>
+    <span class="badge">🔥 Horno</span>
+    <span class="badge">⏱️ 20-25 min a 180 °C</span>
+    <span class="badge">💪 ~44 g proteína</span>
+    <span class="badge">⚖️ ~420 g de mezcla</span>
+    <p style="margin-top:12px; color:var(--muted);">
+      Un wrap flexible y hiperproteico de solo 3 ingredientes: skyr, huevos y maicena. Perfecto para rellenar como un wrap salado.
+    </p>
+  </div>
+
+  <!-- INGREDIENTES -->
+  <div class="card">
+    <h2>🧾 Ingredientes</h2>
+    <table>
+      <tr><th>Ingrediente</th><th>Cantidad</th></tr>
+      <tr><td>🥣 Skyr natural</td><td>300 g</td></tr>
+      <tr><td>🥚 Huevos tamaño M <span class="small">(~100 g comestibles)</span></td><td>2 uds</td></tr>
+      <tr><td>🌽 Maicena</td><td>20 g</td></tr>
+    </table>
+    <div class="tip">
+      🥚 <strong>¿Por qué 2 huevos y no 1?</strong> El skyr tiene una textura más cremosa y suele contener más agua que el cottage escurrido. Con 300 g de skyr, dos huevos ayudan a darle consistencia y evitan que se rompa al manipularla.
+    </div>
+  </div>
+
+  <!-- PREPARACIÓN -->
+  <div class="card">
+    <h2>👨‍🍳 Preparación</h2>
+    <ol class="steps">
+      <li><strong>Bate todo.</strong> Introduce los 300 g de skyr, los 2 huevos y los 20 g de maicena en un bol. Bate hasta obtener una mezcla homogénea.</li>
+      <li><strong>Precalienta.</strong> Calienta el horno a 180 °C, con calor arriba y abajo y ventilador.</li>
+      <li><strong>Extiende.</strong> Vierte la mezcla sobre papel de horno, formando una capa fina y uniforme.</li>
+      <li><strong>Hornea.</strong> Hornea durante 20-25 minutos a 180 °C, calor arriba, abajo y ventilador. La masa subirá y no necesariamente tiene que llegar a los 20 minutos: cuando esté dorada por encima, apaga el horno y deja reposar con la puerta cerrada.</li>
+      <li><strong>Reposa y despega.</strong> Deja reposar unos minutos fuera del horno antes de despegarla y utilizarla como wrap.</li>
+    </ol>
+    <div class="note">
+      ⏳ <strong>Mi consejo:</strong> si quieres un wrap flexible, no lo hornees hasta que quede completamente seco o crujiente. El tiempo es orientativo, porque depende del grosor de la masa y de la humedad del skyr.
+    </div>
+  </div>
+
+  <!-- INFO NUTRICIONAL -->
+  <div class="card">
+    <h2>📊 Información nutricional</h2>
+    <p class="small" style="margin-bottom:12px;">Cálculo realizado con valores medios: skyr natural 0% (59 kcal/100 g), huevo entero (143 kcal/100 g) y maicena (361 kcal/100 g). Peso estimado de la mezcla: ~420 g.</p>
+    <table>
+      <tr><th>Ingrediente</th><th>kcal</th><th>Proteínas</th><th>Hidratos</th><th>Grasas</th></tr>
+      <tr><td>Skyr natural 0% (300 g)</td><td>177</td><td>31,5 g</td><td>12,0 g</td><td>0,6 g</td></tr>
+      <tr><td>Huevo M (2 uds ~100 g)</td><td>143</td><td>12,6 g</td><td>0,7 g</td><td>9,5 g</td></tr>
+      <tr><td>Maicena (20 g)</td><td>72</td><td>0,1 g</td><td>17,7 g</td><td>0,1 g</td></tr>
+      <tr><td>TOTAL RECETA</td><td>≈392</td><td>≈44,1 g</td><td>≈30,3 g</td><td>≈10,1 g</td></tr>
+    </table>
+
+    <h3 style="margin-top:22px;">🍽️ Totales de la receta</h3>
+    <div class="macro-grid">
+      <div class="macro-box kcal"><span class="num">≈392</span><span class="lbl">🔥 kcal</span></div>
+      <div class="macro-box prot"><span class="num">≈44,1 g</span><span class="lbl">💪 proteínas</span></div>
+      <div class="macro-box carb"><span class="num">≈30,3 g</span><span class="lbl">🍞 hidratos</span></div>
+      <div class="macro-box fat"><span class="num">≈10,1 g</span><span class="lbl">🥑 grasas</span></div>
+    </div>
+
+    <h3 style="margin-top:24px;">📊 Por 100 g</h3>
+    <table>
+      <tr><th>Nutriente</th><th>Por 100 g</th></tr>
+      <tr><td>🔥 Calorías</td><td>≈93 kcal</td></tr>
+      <tr><td>💪 Proteínas</td><td>≈10,5 g</td></tr>
+      <tr><td>🍞 Hidratos de carbono</td><td>≈7,2 g</td></tr>
+      <tr><td>🥑 Grasas</td><td>≈2,4 g</td></tr>
+    </table>
+    <div class="note">
+      ⚖️ Los valores por 100 g se calculan sobre la mezcla cruda (~420 g). Al hornearse, el wrap pierde agua y se concentra: las kcal por 100 g del producto final serán algo mayores, aunque el total de la receta no cambia. Para cifras exactas, pesa el wrap terminado.
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
