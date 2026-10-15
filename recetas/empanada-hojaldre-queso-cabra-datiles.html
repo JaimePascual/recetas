@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🥐 Empanada de hojaldre con queso de cabra y dátiles</title>
+<style>
+  :root {
+    --bg: #f7f4ef;
+    --card: #ffffff;
+    --text: #2b2b2b;
+    --muted: #6b6b6b;
+    --accent: #9a6b1f;
+    --accent-light: #f5ead2;
+    --protein: #2e7d32;
+    --warn: #fff8e1;
+    --warn-border: #f0c36d;
+    --tip: #e8f4fd;
+    --tip-border: #64b5f6;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    padding: 24px 16px;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+  .card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  }
+  h1 { font-size: 1.7rem; margin-bottom: 8px; }
+  h2 { font-size: 1.25rem; margin-bottom: 14px; color: var(--accent); }
+  h3 { color: var(--accent); margin-bottom: 6px; }
+  .badge {
+    display: inline-block;
+    background: var(--accent-light);
+    color: var(--accent);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin: 4px 6px 4px 0;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+  }
+  th, td { padding: 9px 12px; text-align: left; border-bottom: 1px solid #eee5da; }
+  th { background: var(--accent-light); color: var(--accent); }
+  tr:last-child td { border-bottom: none; font-weight: 700; background: #fbf5e8; }
+  ol.steps { counter-reset: step; list-style: none; }
+  ol.steps li {
+    counter-increment: step;
+    position: relative;
+    padding: 10px 0 10px 52px;
+  }
+  ol.steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0; top: 10px;
+    width: 34px; height: 34px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+  }
+  ol.steps li strong { color: var(--accent); }
+  .macro-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 12px;
+    margin-top: 12px;
+  }
+  .macro-box {
+    border-radius: 12px;
+    padding: 14px;
+    text-align: center;
+    color: #fff;
+  }
+  .macro-box .num { font-size: 1.3rem; font-weight: 800; display: block; }
+  .macro-box .lbl { font-size: 0.78rem; opacity: 0.92; }
+  .kcal { background: #e8590c; }
+  .prot { background: var(--protein); }
+  .carb { background: #1971c2; }
+  .fat  { background: #f08c00; }
+  .note {
+    background: var(--warn);
+    border-left: 4px solid var(--warn-border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-size: 0.95rem;
+  }
+  .tip {
+    background: var(--tip);
+    border-left: 4px solid var(--tip-border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-size: 0.95rem;
+  }
+  .gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 12px;
+  }
+  .gallery img {
+    width: 100%;
+    border-radius: 12px;
+    border: 2px solid var(--accent-light);
+    display: block;
+  }
+  .gallery figcaption {
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+  .small { font-size: 0.85rem; color: var(--muted); }
+  @media (max-width: 560px) {
+    .gallery { grid-template-columns: 1fr; }
+    .card { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- CABECERA -->
+  <div class="card">
+    <h1>🥐 Empanada de hojaldre con queso de cabra y dátiles</h1>
+    <span class="badge">🔥 Horno</span>
+    <span class="badge">⏱️ ~30 min</span>
+    <span class="badge">🧀 Salado y dulce</span>
+    <p style="margin-top:12px; color:var(--muted);">
+      Hojaldre crujiente relleno de bacon, queso de cabra y dátiles (o higos confitados): el contraste dulce-salado perfecto para compartir.
+    </p>
+  </div>
+
+  <!-- INGREDIENTES -->
+  <div class="card">
+    <h2>🧾 Ingredientes</h2>
+    <table>
+      <tr><th>Ingrediente</th><th>Cantidad aproximada</th></tr>
+      <tr><td>🥐 Masa de hojaldre fresca (del Lupa)</td><td>1 plancha</td></tr>
+      <tr><td>🥓 Bacon en tiras</td><td>5 tiras</td></tr>
+      <tr><td>🧀 Rulo de queso de cabra</td><td>1 rulo</td></tr>
+      <tr><td>🌴 Dátiles <span class="small">(o higos confitados)</span></td><td>al gusto</td></tr>
+      <tr><td>🥚 Huevo <span class="small">(para pincelar)</span></td><td>1 ud</td></tr>
+    </table>
+    <div class="tip">
+      💡 Los dátiles: elige los más blandos, ábrelos por la mitad, quita el hueso si lo tienen y aplástalo antes de colocarlo.
+    </div>
+  </div>
+
+  <!-- INSTRUCCIONES -->
+  <div class="card">
+    <h2>👨‍🍳 Instrucciones</h2>
+    <ol class="steps">
+      <li><strong>Prepara la masa.</strong> Desenrosca la masa y colócala en la bandeja con el papel que trae.</li>
+      <li><strong>Bacon.</strong> Pon 5 tiras de bacon en el centro de la masa. Si son muy gordas, quita la corteza. <strong>No pongas bacon de más: no cierra y no queda bien.</strong></li>
+      <li><strong>Queso.</strong> Coloca rodajas de queso de cabra encima del bacon hasta cubrirlo. Las rodajas, no muy gruesas.</li>
+      <li><strong>Dátiles.</strong> Cubre el queso con los dátiles aplastados (o los higos confitados), hasta cubrir el queso.</li>
+      <li><strong>Cierra la empanada.</strong> Haz cortes en las esquinas de la masa con tijeras y dóblalas hacia dentro, en orden, para que quede entrelazado y los ingredientes queden bien cubiertos. Si falta algún cachillo por tapar, recórtalo de donde sobre y tápalo.</li>
+      <li><strong>Pincela.</strong> Bate un huevo y pincela, solo por arriba.</li>
+      <li><strong>Hornea.</strong> Mete al horno y déjalo media hora escasa, hasta que veas que está doradito, según las instrucciones del hojaldre.</li>
+    </ol>
+  </div>
+
+  <!-- GALERÍA -->
+  <div class="card">
+    <h2>📸 Paso a paso en imágenes</h2>
+    <div class="gallery">
+      <figure>
+        <img src="imagenes/empanada_queso_cabra/image0.jpeg" alt="Empanada de hojaldre - imagen 1">
+        <figcaption>Imagen 1</figcaption>
+      </figure>
+      <figure>
+        <img src="imagenes/empanada_queso_cabra/image1.jpeg" alt="Empanada de hojaldre - imagen 2">
+        <figcaption>Imagen 2</figcaption>
+      </figure>
+      <figure>
+        <img src="imagenes/empanada_queso_cabra/image2.jpeg" alt="Empanada de hojaldre - imagen 3">
+        <figcaption>Imagen 3</figcaption>
+      </figure>
+      <figure>
+        <img src="imagenes/empanada_queso_cabra/image3.jpeg" alt="Empanada de hojaldre - imagen 4">
+        <figcaption>Imagen 4</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <!-- INFO NUTRICIONAL -->
+  <div class="card">
+    <h2>📊 Información nutricional aproximada</h2>
+    <p class="small" style="margin-bottom:12px;">Cálculo estimado con cantidades típicas: 1 plancha de hojaldre fresco (~230 g), 5 tiras de bacon (~100 g), 1 rulo de queso de cabra (~150 g), ~100 g de dátiles y ~30 g de huevo batido utilizado para pincelar.</p>
+    <table>
+      <tr><th>Ingrediente</th><th>Cantidad est.</th><th>kcal</th><th>Proteínas</th><th>Hidratos</th><th>Grasas</th></tr>
+      <tr><td>Masa de hojaldre</td><td>230 g</td><td>≈846</td><td>11,5 g</td><td>69,0 g</td><td>59,8 g</td></tr>
+      <tr><td>Bacon</td><td>100 g</td><td>≈270</td><td>14,0 g</td><td>1,0 g</td><td>23,0 g</td></tr>
+      <tr><td>Queso de cabra</td><td>150 g</td><td>≈435</td><td>28,5 g</td><td>1,5 g</td><td>34,5 g</td></tr>
+      <tr><td>Dátiles</td><td>100 g</td><td>≈282</td><td>2,0 g</td><td>63,0 g</td><td>0,4 g</td></tr>
+      <tr><td>Huevo (pincelar)</td><td>30 g</td><td>≈43</td><td>3,8 g</td><td>0,2 g</td><td>2,9 g</td></tr>
+      <tr><td>TOTAL RECETA (~610 g)</td><td>—</td><td>≈1876</td><td>≈59,8 g</td><td>≈134,7 g</td><td>≈120,5 g</td></tr>
+    </table>
+
+    <h3 style="margin-top:22px;">🍽️ Totales de la receta</h3>
+    <div class="macro-grid">
+      <div class="macro-box kcal"><span class="num">≈1876</span><span class="lbl">🔥 kcal</span></div>
+      <div class="macro-box prot"><span class="num">≈59,8 g</span><span class="lbl">💪 proteínas</span></div>
+      <div class="macro-box carb"><span class="num">≈134,7 g</span><span class="lbl">🍞 hidratos</span></div>
+      <div class="macro-box fat"><span class="num">≈120,5 g</span><span class="lbl">🥑 grasas</span></div>
+    </div>
+
+    <h3 style="margin-top:24px;">📊 Por 100 g</h3>
+    <table>
+      <tr><th>Nutriente</th><th>Por 100 g</th></tr>
+      <tr><td>🔥 Calorías</td><td>≈308 kcal</td></tr>
+      <tr><td>💪 Proteínas</td><td>≈9,8 g</td></tr>
+      <tr><td>🍞 Hidratos de carbono</td><td>≈22,1 g</td></tr>
+      <tr><td>🥑 Grasas</td><td>≈19,8 g</td></tr>
+    </table>
+    <div class="note">
+      ⚖️ <strong>Receta estimada:</strong> los pesos reales dependen de tu plancha de hojaldre, el grosor de las tiras de bacon y el tamaño del rulo. Para cifras exactas, usa las etiquetas de tus productos o pesa la empanada terminada: cada 100 g serán aproximadamente 308 kcal.
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
