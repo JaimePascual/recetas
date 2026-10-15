@@ -59,6 +59,8 @@
         </div>
     </div>
 
+    
+    <script src="./recetas.js"></script>
     <script>
         const RECIPES_FOLDER = 'recetas';
 
@@ -67,45 +69,32 @@
         const countLabel = document.getElementById('countLabel');
         let allRecipes = [];
 
-        async function loadRecipes() {
-            try {
-                // Lee el índice estático generado automáticamente por GitHub Actions.
-                const response = await fetch('./recetas.json');
+        
+function loadRecipes() {
+    if (!Array.isArray(window.RECIPES)) {
+        container.innerHTML =
+            '<div class="error">❌ No se ha encontrado recetas.js. Comprueba que está junto a index.html.</div>';
+        updateCount(0);
+        return;
+    }
 
-                if (!response.ok) {
-                    throw new Error(
-                        'No se pudo cargar recetas.json (HTTP ' + response.status +
-                        '). Comprueba que el archivo existe y que GitHub Actions lo ha generado.'
-                    );
-                }
+    allRecipes = window.RECIPES
+        .filter(name =>
+            typeof name === 'string' &&
+            name.toLowerCase().endsWith('.html')
+        )
+        .map(name => ({ name }));
 
-                const data = await response.json();
+    if (allRecipes.length === 0) {
+        container.innerHTML =
+            '<div class="empty">No hay recetas HTML en la carpeta todavía.</div>';
+        updateCount(0);
+        return;
+    }
 
-                if (!Array.isArray(data)) {
-                    throw new Error('El contenido de recetas.json no tiene el formato esperado.');
-                }
+    renderRecipes(allRecipes);
+}
 
-                // El JSON contiene nombres de archivo, por ejemplo: "bizcocho.html".
-                allRecipes = data
-                    .filter(name =>
-                        typeof name === 'string' &&
-                        name.toLowerCase().endsWith('.html')
-                    )
-                    .map(name => ({ name }));
-
-                if (allRecipes.length === 0) {
-                    container.innerHTML =
-                        '<div class="empty">No hay recetas HTML en la carpeta todavía. ¡Sube algunas!</div>';
-                    updateCount(0);
-                    return;
-                }
-
-                renderRecipes(allRecipes);
-            } catch (err) {
-                container.innerHTML = `<div class="error">❌ ${err.message}</div>`;
-                updateCount(0);
-            }
-        }
 
         function renderRecipes(recipes) {
             if (recipes.length === 0) {
