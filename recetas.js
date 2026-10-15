@@ -25,6 +25,7 @@ window.RECIPES = [
   "salsa-carolina-reaper-ahumada.html",
   "salsa-carolina-reaper-tropical-sun.html",
   "tarta-queso-la-vina-SARA.html",
+  "tarta-queso-matty-jaime-chocolate.html",
   "tarta-queso-matty-jaime.html",
   "tarta-queso-matty.html",
   "tarta_de_queso_cottage.html",
