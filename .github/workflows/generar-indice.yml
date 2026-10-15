@@ -32,9 +32,12 @@ jobs:
               if archivo.is_file()
           )
 
-          Path("recetas.json").write_text(
-              json.dumps(recetas, ensure_ascii=False, indent=2) + "\n",
-              encoding="utf-8"
+          contenido = "window.RECIPES = " + json.dumps(
+              recetas, ensure_ascii=False, indent=2
+          ) + ";\n"
+
+          Path("recetas.js").write_text(
+              contenido, encoding="utf-8"
           )
 
           print(f"Índice generado: {len(recetas)} recetas")
@@ -42,7 +45,7 @@ jobs:
 
       - name: Guardar índice actualizado
         run: |
-          if git diff --quiet -- recetas.json; then
+          if git diff --quiet -- recetas.js; then
             echo "El índice ya está actualizado."
             exit 0
           fi
@@ -50,6 +53,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add recetas.json
+          git add recetas.js
           git commit -m "Actualizar índice de recetas"
           git push
+          
