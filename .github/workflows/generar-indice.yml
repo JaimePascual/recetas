@@ -43,9 +43,12 @@ jobs:
           print(f"Índice generado: {len(recetas)} recetas")
           PY
 
+     
       - name: Guardar índice actualizado
         run: |
-          if git diff --quiet -- recetas.js; then
+          git add recetas.js
+
+          if git diff --cached --quiet; then
             echo "El índice ya está actualizado."
             exit 0
           fi
@@ -53,7 +56,6 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add recetas.js
           git commit -m "Actualizar índice de recetas"
           git push
-          
+
