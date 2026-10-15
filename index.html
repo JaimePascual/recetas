@@ -70,7 +70,7 @@
         let allRecipes = [];
 
         
-async function loadRecipes() {
+function loadRecipes() {
     if (!Array.isArray(window.RECIPES)) {
         container.innerHTML =
             '<div class="error">❌ No se ha encontrado recetas.js. Comprueba que está junto a index.html.</div>';
