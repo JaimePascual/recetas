@@ -15,6 +15,7 @@ window.RECIPES = [
   "croquetas-atun-salsa.html",
   "empanada-de-carne-mexicana.html",
   "empanada-hojaldre-queso-cabra-datiles.html",
+  "gelatina-proteica.html",
   "hamburguesa-soja.html",
   "hamburguesas-soja-texturizada-mascalorica.html",
   "mayonesa-alta-proteina.html",
