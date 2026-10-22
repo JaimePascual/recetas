@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Receta de fiambre de pollo casero en freidora de aire. Alto en proteínas, sin rellenos ni conservantes añadidos.">
+    <title>Fiambre de pollo casero</title>
+
+    <style>
+        :root {
+            --primary: #3b7657;
+            --primary-light: #e8f2eb;
+            --background: #f5f7f5;
+            --surface: #ffffff;
+            --text: #26332b;
+            --muted: #65736a;
+            --border: #dce5dd;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 24px 16px;
+            background: var(--background);
+            color: var(--text);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont,
+                         "Segoe UI", sans-serif;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: var(--surface);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 5px 24px rgba(0, 0, 0, 0.06);
+        }
+
+        .hero {
+            padding: 36px 28px;
+            background: var(--primary-light);
+            text-align: center;
+        }
+
+        .hero h1 {
+            margin: 0 0 12px;
+            color: var(--primary);
+            font-size: clamp(1.8rem, 5vw, 2.7rem);
+            line-height: 1.2;
+        }
+
+        .hero p {
+            max-width: 600px;
+            margin: 0 auto;
+            color: var(--muted);
+        }
+
+        .content {
+            padding: 28px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .tag {
+            padding: 6px 12px;
+            border-radius: 20px;
+            background: white;
+            color: var(--primary);
+            font-size: 0.88rem;
+            font-weight: 600;
+        }
+
+        h2 {
+            margin-top: 32px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--border);
+            color: var(--primary);
+            font-size: 1.45rem;
+        }
+
+        h2:first-child {
+            margin-top: 0;
+        }
+
+        h3 {
+            margin-bottom: 8px;
+            color: var(--primary);
+        }
+
+        ul, ol {
+            padding-left: 24px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .note {
+            margin: 20px 0;
+            padding: 16px 18px;
+            border-left: 4px solid var(--primary);
+            border-radius: 6px;
+            background: var(--primary-light);
+        }
+
+        .warning {
+            border-left-color: #d49a32;
+            background: #fff7e8;
+        }
+
+        .weight-input {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 12px;
+            margin: 16px 0;
+        }
+
+        .weight-input label {
+            font-weight: 600;
+        }
+
+        .weight-input input {
+            width: 150px;
+            max-width: 100%;
+            padding: 10px 12px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font: inherit;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 18px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        th, td {
+            padding: 12px 14px;
+            border-bottom: 1px solid var(--border);
+            text-align: left;
+        }
+
+        th {
+            background: var(--primary-light);
+            color: var(--primary);
+        }
+
+        td:last-child, th:last-child {
+            text-align: right;
+        }
+
+        .total-row {
+            font-weight: 700;
+            background: #f6f9f6;
+        }
+
+        .muted {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        footer {
+            padding: 20px 28px;
+            background: var(--background);
+            color: var(--muted);
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            .hero, .content {
+                padding: 22px 18px;
+            }
+
+            th, td {
+                padding: 10px 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<main class="container">
+
+    <header class="hero">
+        <h1>Fiambre de pollo casero</h1>
+        <p>
+            Fiambre casero alto en proteínas, preparado con pechuga de pollo,
+            especias y una pequeña cantidad de agua en la freidora de aire.
+            Sin almidones, rellenos ni conservantes añadidos.
+        </p>
+
+        <div class="tags">
+            <span class="tag">🍗 Alto en proteínas</span>
+            <span class="tag">🌬️ Freidora de aire</span>
+            <span class="tag">🥗 Bajo en grasa</span>
+        </div>
+    </header>
+
+    <div class="content">
+
+        <section>
+            <h2>Ingredientes</h2>
+            <ul>
+                <li>3 pechugas de pollo enteras.</li>
+                <li>10–12 g de sal por cada kilogramo de pollo.</li>
+                <li>Pimienta negra al gusto.</li>
+                <li>Ajo en polvo al gusto.</li>
+                <li>Pimentón dulce al gusto.</li>
+                <li>30–50 ml de agua por cada kilogramo de carne, aproximadamente.</li>
+            </ul>
+            <p class="muted">
+                La cantidad de sal y agua debe ajustarse al peso real de las pechugas.
+            </p>
+        </section>
+
+        <section>
+            <h2>Elaboración</h2>
+            <ol>
+                <li>
+                    <strong>Preparar el pollo.</strong>
+                    Retira los tendones y la grasa visible de las pechugas.
+                    Si es necesario, colócalas de forma que queden bien ajustadas
+                    dentro del molde de silicona, sin comprimirlas en exceso.
+                </li>
+                <li>
+                    <strong>Añadir las especias.</strong>
+                    Reparte uniformemente la sal, la pimienta, el ajo en polvo
+                    y el pimentón por toda la carne. Puedes dejarla reposar
+                    unos minutos en la nevera para que absorba mejor los sabores.
+                </li>
+                <li>
+                    <strong>Incorporar el agua.</strong>
+                    Añade al molde una pequeña cantidad de agua, calculada
+                    según el peso del pollo. No hace falta cubrir la carne:
+                    las pechugas también soltarán sus propios jugos durante
+                    la cocción.
+                </li>
+                <li>
+                    <strong>Cocinar en la freidora de aire.</strong>
+                    Coloca el molde de silicona en la cesta y cocina a
+                    150 °C durante unos 30 minutos como punto de partida.
+                    El tiempo real dependerá del tamaño de las pechugas,
+                    de su disposición y de la profundidad del molde.
+                </li>
+                <li>
+                    <strong>Comprobar la temperatura.</strong>
+                    Empieza a comprobar la cocción a partir de los 25 minutos.
+                    Introduce un termómetro en la parte más gruesa de la carne.
+                    El pollo debe alcanzar al menos 74 °C en su interior.
+                    Si todavía no ha llegado, continúa cocinando y vuelve a medir.
+                </li>
+                <li>
+                    <strong>Enfriar y refrigerar.</strong>
+                    Una vez cocinado, deja que repose brevemente y pásalo a
+                    un recipiente poco profundo. Refrigéralo cuanto antes,
+                    sin dejarlo a temperatura ambiente más de dos horas.
+                </li>
+                <li>
+                    <strong>Compactar y cortar.</strong>
+                    Cuando esté frío, puedes colocar un peso ligero encima
+                    si el recipiente lo permite. Déjalo en la nevera varias
+                    horas, preferiblemente toda la noche, para que adquiera
+                    una textura más firme y resulte más fácil cortarlo en lonchas.
+                </li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>Consejos para conseguir un buen fiambre</h2>
+
+            <h3>Para que quede jugoso</h3>
+            <ul>
+                <li>No añadas demasiada agua: el pollo soltará sus propios jugos.</li>
+                <li>Evita cocinarlo más tiempo del necesario una vez alcanzada la temperatura segura.</li>
+                <li>No tritures la carne si quieres conservar la textura de pechuga cocinada y sus fibras visibles.</li>
+            </ul>
+
+            <h3>Para que quede firme y fácil de cortar</h3>
+            <ul>
+                <li>Coloca las pechugas juntas en el molde, evitando grandes huecos.</li>
+                <li>Refrigera el pollo durante toda la noche antes de cortarlo.</li>
+                <li>Utiliza un cuchillo bien afilado para obtener lonchas finas.</li>
+            </ul>
+
+            <div class="note warning">
+                <strong>Importante:</strong> si colocas tres pechugas enteras
+                en un molde profundo, el exterior puede cocinarse antes que
+                el centro. Los 30 minutos son orientativos: la temperatura
+                interna de 74 °C es la referencia para comprobar que el pollo
+                está bien cocinado.
+            </div>
+        </section>
+
+        <section>
+            <h2>Conservación</h2>
+            <ul>
+                <li>
+                    <strong>En la nevera:</strong> consérvalo en un recipiente
+                    limpio y hermético, a 4 °C o menos, y consúmelo en un plazo
+                    de 3–4 días.
+                </li>
+                <li>
+                    <strong>En el congelador:</strong> puedes congelarlo en
+                    porciones o lonchas para descongelar únicamente la cantidad
+                    que necesites.
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Información nutricional</h2>
+
+            <p>
+                Introduce el peso total de las pechugas en crudo para estimar
+                los valores nutricionales de la receta. Los cálculos utilizan
+                valores medios de pechuga de pollo sin piel y sin hueso.
+            </p>
+
+            <div class="weight-input">
+                <label for="chickenWeight">Peso del pollo en crudo (g):</label>
+                <input
+                    type="number"
+                    id="chickenWeight"
+                    value="750"
+                    min="1"
+                    step="1"
+                    inputmode="numeric"
+                >
+            </div>
+
+            <p class="muted">
+                El peso inicial de 750 g es solo un ejemplo editable.
+                Los resultados no incluyen el agua, la sal ni las especias.
+            </p>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nutriente</th>
+                            <th>Receta total</th>
+                            <th>Por 100 g de pollo crudo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Calorías</td>
+                            <td id="totalKcal">900 kcal</td>
+                            <td>120 kcal</td>
+                        </tr>
+                        <tr>
+                            <td>Proteínas</td>
+                            <td id="totalProtein">168,8 g</td>
+                            <td>22,5 g</td>
+                        </tr>
+                        <tr>
+                            <td>Hidratos de carbono</td>
+                            <td id="totalCarbs">0 g</td>
+                            <td>0 g</td>
+                        </tr>
+                        <tr>
+                            <td>Grasas</td>
+                            <td id="totalFat">19,5 g</td>
+                            <td>2,6 g</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="note">
+                <strong>Cómo interpretar los valores:</strong>
+                las cifras por 100 g corresponden al pollo en crudo.
+                Al cocinarse, la carne pierde agua y su peso disminuye,
+                por lo que los nutrientes por 100 g de fiambre terminado
+                serán diferentes y normalmente más concentrados.
+            </div>
+
+            <p class="muted">
+                Valores orientativos: 120 kcal, 22,5 g de proteínas,
+                2,6 g de grasas y 0 g de hidratos por cada 100 g de pechuga
+                cruda. Para un cálculo exacto, consulta la etiqueta del pollo
+                utilizado. Las especias pueden aportar pequeñas cantidades
+                adicionales de nutrientes.
+            </p>
+        </section>
+
+    </div>
+
+    <footer>
+        Receta casera de fiambre de pollo · Preparación en freidora de aire
+    </footer>
+</main>
+
+<script>
+    const weightInput = document.getElementById("chickenWeight");
+
+    const nutrition = {
+        kcal: 120,
+        protein: 22.5,
+        carbs: 0,
+        fat: 2.6
+    };
+
+    function formatNumber(value) {
+        return value.toLocaleString("es-ES", {
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 1
+        });
+    }
+
+    function updateNutrition() {
+        const weight = Number(weightInput.value);
+
+        if (!Number.isFinite(weight) || weight <= 0) {
+            return;
+        }
+
+        document.getElementById("totalKcal").textContent =
+            formatNumber(weight * nutrition.kcal / 100) + " kcal";
+
+        document.getElementById("totalProtein").textContent =
+            formatNumber(weight * nutrition.protein / 100) + " g";
+
+        document.getElementById("totalCarbs").textContent =
+            formatNumber(weight * nutrition.carbs / 100) + " g";
+
+        document.getElementById("totalFat").textContent =
+            formatNumber(weight * nutrition.fat / 100) + " g";
+    }
+
+    weightInput.addEventListener("input", updateNutrition);
+    updateNutrition();
+</script>
+
+</body>
+</html>
+```
