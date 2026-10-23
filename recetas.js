@@ -22,7 +22,6 @@ window.RECIPES = [
   "hamburguesas-soja-texturizada-mascalorica.html",
   "mayonesa-alta-proteina.html",
   "mermelada-manzana-proteica.html",
-  "mi-tarta-queso-lavina-proteica.html",
   "pizza-hiperproteica-cottage-soja-claras.html",
   "pudding-chocolate-hiperproteico.html",
   "salsa-carolina-reaper-ahumada.html",
