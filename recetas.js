@@ -18,6 +18,7 @@ window.RECIPES = [
   "empanada-hojaldre-queso-cabra-datiles.html",
   "fiambre_pollo_casero.html",
   "gelatina-proteica.html",
+  "gominolas_proteicas_1kg.html",
   "hamburguesa-matty-saludable.html",
   "hamburguesa-soja.html",
   "hamburguesas-soja-texturizada-mascalorica.html",
