@@ -1,4 +1,5 @@
 window.RECIPES = [
+  "1huevo-2claras-o-60gramos.html",
   "Ternera guisada infantil en airfryer + olla rápida.html",
   "bizcocho-limon-Ana.html",
   "caldo-de-cocido.html",
