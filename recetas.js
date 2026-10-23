@@ -32,5 +32,6 @@ window.RECIPES = [
   "tarta-queso-matty-jaime.html",
   "tarta-queso-matty.html",
   "tarta_de_queso_cottage.html",
-  "tarta_de_queso_cottage_proteica.html"
+  "tarta_de_queso_cottage_proteica.html",
+  "tortilla_maiz_proteina-Mayden.html"
 ];
