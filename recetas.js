@@ -23,6 +23,7 @@ window.RECIPES = [
   "hamburguesa-soja.html",
   "hamburguesas-soja-texturizada-mascalorica.html",
   "mayonesa-alta-proteina.html",
+  "membrillo-sin-azucar-con-limón.html",
   "mermelada-manzana-proteica.html",
   "natillas-proteicas-con-bebida-almendra.html",
   "pastel_yogurt_jamón_y_queso_proteina-Mayden.html",
