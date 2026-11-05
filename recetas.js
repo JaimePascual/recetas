@@ -1,6 +1,7 @@
 window.RECIPES = [
   "1huevo-2claras-o-60gramos.html",
   "Ternera guisada infantil en airfryer + olla rápida.html",
+  "base-pizza-proteica-cottage-y-huevo.html",
   "bizcocho-limon-Ana.html",
   "caldo-de-cocido.html",
   "cerdo guisado infantil airfryer olla rapida.html",
