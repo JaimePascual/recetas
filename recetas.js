@@ -40,6 +40,7 @@ window.RECIPES = [
   "tarta-queso-matty.html",
   "tarta_de_queso_cottage.html",
   "tarta_de_queso_cottage_proteica.html",
+  "tarta_de_quesobatido0grasa_gelatina_y_whey.html",
   "tortilla_garbanzos_proteina-Mayden.html",
   "tortilla_maiz_proteina-Mayden.html",
   "tortilla_patata_y_jamón_proteina-Mayden.html",
