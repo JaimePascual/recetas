@@ -28,6 +28,7 @@ window.RECIPES = [
   "mermelada-manzana-proteica.html",
   "natillas-proteicas-con-bebida-almendra.html",
   "pastel_yogurt_jamón_y_queso_proteina-Mayden.html",
+  "patatas-gajo-microondas.html",
   "pizza-hiperproteica-cottage-soja-claras.html",
   "pudding-chocolate-hiperproteico.html",
   "salsa-carolina-reaper-ahumada.html",
