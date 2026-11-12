@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🥔 Patatas gajo en microondas</title>
+<style>
+  :root {
+    --bg: #f7f4ef;
+    --card: #ffffff;
+    --text: #2b2b2b;
+    --muted: #6b6b6b;
+    --accent: #b8860b;
+    --accent-light: #f7ecd4;
+    --protein: #2e7d32;
+    --warn: #fff8e1;
+    --warn-border: #f0c36d;
+    --tip: #e8f4fd;
+    --tip-border: #64b5f6;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    padding: 24px 16px;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+  .card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  }
+  h1 { font-size: 1.7rem; margin-bottom: 8px; }
+  h2 { font-size: 1.25rem; margin-bottom: 14px; color: var(--accent); }
+  h3 { color: var(--accent); margin-bottom: 6px; }
+  .badge {
+    display: inline-block;
+    background: var(--accent-light);
+    color: var(--accent);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin: 4px 6px 4px 0;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+  }
+  th, td { padding: 9px 12px; text-align: left; border-bottom: 1px solid #eee5da; }
+  th { background: var(--accent-light); color: var(--accent); }
+  tr:last-child td { border-bottom: none; }
+  ol.steps { counter-reset: step; list-style: none; }
+  ol.steps li {
+    counter-increment: step;
+    position: relative;
+    padding: 10px 0 10px 52px;
+  }
+  ol.steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0; top: 10px;
+    width: 34px; height: 34px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+  }
+  ol.steps li strong { color: var(--accent); }
+  .note {
+    background: var(--warn);
+    border-left: 4px solid var(--warn-border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-size: 0.95rem;
+  }
+  .tip {
+    background: var(--tip);
+    border-left: 4px solid var(--tip-border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-size: 0.95rem;
+  }
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .col-box {
+    border: 2px solid var(--accent-light);
+    border-radius: 12px;
+    padding: 16px;
+  }
+  .col-box h3 { margin-bottom: 8px; }
+  .small { font-size: 0.85rem; color: var(--muted); }
+  @media (max-width: 560px) {
+    .two-col { grid-template-columns: 1fr; }
+    .card { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- CABECERA -->
+  <div class="card">
+    <h1>🥔 Patatas gajo en microondas</h1>
+    <span class="badge">📡 Microondas 800 W</span>
+    <span class="badge">⏱️ 14 min</span>
+    <span class="badge">🚫 Sin aceite</span>
+    <span class="badge">🍟 Opción crujiente en Airfryer</span>
+    <p style="margin-top:12px; color:var(--muted);">
+      Patatas tiernas en 14 minutos sin aceite. Si quieres el toque dorado y crujiente, acabas de un paso por la freidora de aire.
+    </p>
+  </div>
+
+  <!-- INGREDIENTES -->
+  <div class="card">
+    <h2>🧾 Ingredientes</h2>
+    <table>
+      <tr><th>Ingrediente</th><th>Cantidad</th></tr>
+      <tr><td>🥔 Patatas en gajos</td><td>las que vayan al molde</td></tr>
+      <tr><td>💧 Agua</td><td>1-2 cucharadas</td></tr>
+      <tr><td>🧂 Sal y pimienta</td><td>al gusto</td></tr>
+      <tr><td>🌿 Especias al gusto <span class="small">(ajo en polvo, pimentón, romero…)</span></td><td>al gusto</td></tr>
+    </table>
+    <div class="tip">
+      🫒 <strong>Aceite de oliva (opcional):</strong> esta receta se hace sin aceite. Si al final las pasas por la freidora de aire y quieres añadir 3-5 g de aceite para mejorar el dorado, <strong>no está incluido en los cálculos</strong>: si lo usas, súmalo a tu receta (3-5 g de AOVE ≈ 27-45 kcal).
+    </div>
+  </div>
+
+  <!-- PREPARACIÓN -->
+  <div class="card">
+    <h2>👨‍🍳 Preparación</h2>
+    <ol class="steps">
+      <li><strong>Coloca las patatas.</strong> Pon los gajos en el molde, procurando que no queden demasiado amontonados.</li>
+      <li><strong>Añade el agua.</strong> Incorpora 1-2 cucharadas de agua.</li>
+      <li><strong>Sazona.</strong> Salpimenta y añade las especias al gusto (ajo en polvo, pimentón, pimienta, romero…).</li>
+      <li><strong>Tapa y cocina.</strong> Tapa con la tapa de microondas y cocina <strong>14 minutos a 800 W</strong>.</li>
+      <li><strong>Comprueba.</strong> Abre con cuidado (saldrá vapor), remueve y pincha con un tenedor. Si siguen duras, añade tandas de 1-2 minutos.</li>
+    </ol>
+  </div>
+
+  <!-- TEXTURA -->
+  <div class="card">
+    <h2>✨ Para conseguir mejor textura</h2>
+    <div class="two-col">
+      <div class="col-box">
+        <h3>🍲 Tiernas y jugosas</h3>
+        <p>Déjalas <strong>reposar 2 minutos tapadas</strong> al terminar. El vapor residual termina de cocerlas por dentro.</p>
+      </div>
+      <div class="col-box">
+        <h3>🍟 Doradas y crujientes</h3>
+        <p>Pásalas después <strong>5-8 minutos en freidora de aire a 200 °C</strong>. Si quieres mejorar el dorado, añade apenas 3-5 g de aceite (recuerda sumarlo a tus macros).</p>
+      </div>
+    </div>
+    <div class="tip">
+      🔑 <strong>Truco:</strong> no necesitas aceite para que queden tiernas: el microondas las cuece al vapor con las 1-2 cucharadas de agua.
+    </div>
+  </div>
+
+  <!-- INFO NUTRICIONAL -->
+  <div class="card">
+    <h2>📊 Información nutricional por 100 g de patata</h2>
+    <p class="small" style="margin-bottom:12px;">Valores por 100 g de patata cocida en microondas sin aceite. Como la cantidad de patatas depende del molde, multiplica por los gramos que uses (por ejemplo, 300 g de patatas ≈ 261 kcal).</p>
+    <table>
+      <tr><th>Nutriente</th><th>Por 100 g de patata</th></tr>
+      <tr><td>🔥 Calorías</td><td>≈87 kcal</td></tr>
+      <tr><td>💪 Proteínas</td><td>≈1,9 g</td></tr>
+      <tr><td>🍞 Carbohidratos</td><td>≈20,1 g</td></tr>
+      <tr><td>🌾 Fibra</td><td>≈1,8 g</td></tr>
+      <tr><td>🥑 Grasas</td><td>≈0,1 g</td></tr>
+    </table>
+    <div class="note">
+      ⚖️ Cálculo sobre patata cocida (hervida/microondas) sin aceite ni sal. Las especias y la sal aportan calorías despreciables. <strong>El AOVE opcional para el dorado no está incluido:</strong> si lo usas, añádelo a tu cuenta (≈9 kcal por gramo).
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
