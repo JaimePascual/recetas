@@ -3,6 +3,7 @@ window.RECIPES = [
   "Ternera guisada infantil en airfryer + olla rápida.html",
   "base-pizza-proteica-cottage-y-huevo.html",
   "bizcocho-limon-Ana.html",
+  "bolitas-calabacin-proteicas.html",
   "caldo-de-cocido.html",
   "cerdo guisado infantil airfryer olla rapida.html",
   "cheesecake-cremosa-proteica-calabaza-airfryer.html",
