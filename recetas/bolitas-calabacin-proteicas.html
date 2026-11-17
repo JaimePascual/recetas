@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🟢 Bolitas de calabacín proteicas al horno</title>
+<style>
+  :root {
+    --bg: #f7f4ef;
+    --card: #ffffff;
+    --text: #2b2b2b;
+    --muted: #6b6b6b;
+    --accent: #5c8a3a;
+    --accent-light: #e8f1dc;
+    --protein: #2e7d32;
+    --warn: #fff8e1;
+    --warn-border: #f0c36d;
+    --tip: #e8f4fd;
+    --tip-border: #64b5f6;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    padding: 24px 16px;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+  .card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  }
+  h1 { font-size: 1.7rem; margin-bottom: 8px; }
+  h2 { font-size: 1.25rem; margin-bottom: 14px; color: var(--accent); }
+  h3 { color: var(--accent); margin-bottom: 6px; }
+  .badge {
+    display: inline-block;
+    background: var(--accent-light);
+    color: var(--accent);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin: 4px 6px 4px 0;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+  }
+  th, td { padding: 9px 12px; text-align: left; border-bottom: 1px solid #eee5da; }
+  th { background: var(--accent-light); color: var(--accent); }
+  tr:last-child td { border-bottom: none; }
+  ol.steps { counter-reset: step; list-style: none; }
+  ol.steps li {
+    counter-increment: step;
+    position: relative;
+    padding: 10px 0 10px 52px;
+  }
+  ol.steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0; top: 10px;
+    width: 34px; height: 34px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+  }
+  ol.steps li strong { color: var(--accent); }
+  .macro-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 12px;
+    margin-top: 12px;
+  }
+  .macro-box {
+    border-radius: 12px;
+    padding: 14px;
+    text-align: center;
+    color: #fff;
+  }
+  .macro-box .num { font-size: 1.3rem; font-weight: 800; display: block; }
+  .macro-box .lbl { font-size: 0.78rem; opacity: 0.92; }
+  .kcal { background: #e8590c; }
+  .prot { background: var(--protein); }
+  .carb { background: #1971c2; }
+  .fat  { background: #f08c00; }
+  .note {
+    background: var(--warn);
+    border-left: 4px solid var(--warn-border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-size: 0.95rem;
+  }
+  .tip {
+    background: var(--tip);
+    border-left: 4px solid var(--tip-border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-size: 0.95rem;
+  }
+  .small { font-size: 0.85rem; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- CABECERA -->
+  <div class="card">
+    <h1>🟢 Bolitas de calabacín proteicas al horno</h1>
+    <span class="badge">🔥 Horno 200 °C</span>
+    <span class="badge">⏱️ 25-30 min</span>
+    <span class="badge">🍡 20-25 bolitas</span>
+    <span class="badge">💪 52 g proteína</span>
+    <p style="margin-top:12px; color:var(--muted);">
+      Bolitas de calabacín al horno, ligeras y llenas de proteína: el truco está en escurrir muy bien el calabacín para que queden firmes.
+    </p>
+  </div>
+
+  <!-- INGREDIENTES -->
+  <div class="card">
+    <h2>🧾 Ingredientes <span class="small">(para unas 20-25 bolitas)</span></h2>
+    <table>
+      <tr><th>Ingrediente</th><th>Cantidad</th></tr>
+      <tr><td>🟢 Calabacines medianos</td><td>800 g</td></tr>
+      <tr><td>🧀 Cottage 0%</td><td>150 g</td></tr>
+      <tr><td>🥚 Claras de huevo</td><td>100 g</td></tr>
+      <tr><td>💪 Proteína whey</td><td>20 g</td></tr>
+      <tr><td>🌽 Maicena</td><td>15 g</td></tr>
+      <tr><td>🧄 Ajo</td><td>1 diente (3 g)</td></tr>
+      <tr><td>🧅 Cebolla picada <span class="small">(opcional)</span></td><td>20 g</td></tr>
+      <tr><td>🌿 Perejil fresco</td><td>4 g</td></tr>
+      <tr><td>🫒 Aceite de oliva en spray</td><td>3 g</td></tr>
+      <tr><td>🧂 Sal y pimienta</td><td>al gusto</td></tr>
+    </table>
+  </div>
+
+  <!-- ELABORACIÓN -->
+  <div class="card">
+    <h2>👨‍🍳 Elaboración</h2>
+    <ol class="steps">
+      <li><strong>Preparar el calabacín.</strong> Lava y ralla los calabacines con un rallador grueso. Colócalos en un colador, añade un poco de sal y deja reposar 10 minutos para que pierdan parte del agua. Después, exprímelos muy bien con las manos o con un paño de cocina limpio. <em>Es importante eliminar la mayor cantidad de líquido posible.</em></li>
+      <li><strong>Preparar la mezcla.</strong> Escurre ligeramente el cottage si contiene demasiado suero. En un recipiente grande, incorpora el calabacín escurrido, el cottage y las claras de huevo. Añade la whey y la maicena, preferiblemente mezcladas previamente para evitar grumos. Incorpora el ajo picado, la cebolla, el perejil, la pimienta y la sal. Mezcla bien hasta conseguir una masa homogénea y deja reposar 5-10 minutos para que la maicena y la proteína absorban parte de la humedad.</li>
+      <li><strong>Formar las bolitas.</strong> Con las manos ligeramente humedecidas, toma pequeñas porciones de masa y forma bolitas del tamaño de una nuez. Colócalas sobre una bandeja de horno cubierta con papel vegetal, dejando espacio entre ellas. Si la masa resulta demasiado blanda, añade 5 g adicionales de maicena y mezcla de nuevo.</li>
+      <li><strong>Hornear.</strong> Precalienta el horno a 200 °C con calor arriba y abajo. Pulveriza ligeramente las bolitas con aceite de oliva y hornea durante 25-30 minutos, dándoles la vuelta a mitad de cocción. Para un acabado más dorado y crujiente, activa el gratinador los últimos 2-3 minutos.</li>
+      <li><strong>Reposar y servir.</strong> Retira del horno y deja reposar unos minutos antes de servir: el reposo ayuda a que la estructura se asiente y las bolitas adquieran mayor consistencia.</li>
+    </ol>
+    <div class="tip">
+      💡 <strong>Consejo:</strong> si la masa queda demasiado blanda para formar las bolitas, añade 5 g más de maicena y mezcla de nuevo.
+    </div>
+  </div>
+
+  <!-- INFO NUTRICIONAL -->
+  <div class="card">
+    <h2>📊 Información nutricional</h2>
+    <p class="small" style="margin-bottom:12px;">Para los cálculos he utilizado: Cottage Carrefour 0% (68 kcal y 12 g de proteína por 100 g), whey con valores aproximados de tu PRIMAL ASSAULT (115 kcal y 20 g de proteína por 30 g), claras con valores nutricionales habituales, calabacín con valores medios y 3 g de aceite.</p>
+    <h3>🍽️ Receta completa (aproximadamente)</h3>
+    <div class="macro-grid">
+      <div class="macro-box kcal"><span class="num">475</span><span class="lbl">🔥 kcal</span></div>
+      <div class="macro-box prot"><span class="num">52 g</span><span class="lbl">💪 proteínas</span></div>
+      <div class="macro-box carb"><span class="num">51 g</span><span class="lbl">🍞 hidratos</span></div>
+      <div class="macro-box fat"><span class="num">7,5 g</span><span class="lbl">🥑 grasas</span></div>
+    </div>
+
+    <h3 style="margin-top:24px;">📊 Por cada 100 g de producto terminado</h3>
+    <p class="small" style="margin-bottom:12px;">Suponiendo un peso final de 650 g tras el horneado.</p>
+    <table>
+      <tr><th>Nutriente</th><th>Por 100 g</th></tr>
+      <tr><td>🔥 Calorías</td><td>73 kcal</td></tr>
+      <tr><td>💪 Proteínas</td><td>8 g</td></tr>
+      <tr><td>🍞 Hidratos</td><td>7,8 g</td></tr>
+      <tr><td>🥑 Grasas</td><td>1,2 g</td></tr>
+    </table>
+    <div class="note">
+      📌 Los valores son aproximados y pueden variar según las marcas utilizadas, especialmente la whey y el cottage. Al hornearse las bolitas pierden agua: el peso final real puede variar, y con él los macros por 100 g (aunque las calorías totales de la receta no cambian). Para cifras exactas, pesa las bolitas terminadas.
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
