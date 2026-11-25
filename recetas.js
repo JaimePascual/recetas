@@ -29,6 +29,7 @@ window.RECIPES = [
   "membrillo-sin-azucar-con-limón.html",
   "mermelada-manzana-proteica.html",
   "natillas-proteicas-con-bebida-almendra.html",
+  "pastel-francés-manzana-proteico.html",
   "pastel_yogurt_jamón_y_queso_proteina-Mayden.html",
   "patatas-gajo-microondas.html",
   "pizza-hiperproteica-cottage-soja-claras.html",
