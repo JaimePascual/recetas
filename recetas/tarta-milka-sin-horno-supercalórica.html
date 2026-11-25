@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🍫 Tarta de Milka sin horno</title>
+<style>
+  :root {
+    --bg: #f7f4ef;
+    --card: #ffffff;
+    --text: #2b2b2b;
+    --muted: #6b6b6b;
+    --accent: #6b4226;
+    --accent-light: #f0e2d8;
+    --protein: #2e7d32;
+    --warn: #fff8e1;
+    --warn-border: #f0c36d;
+    --tip: #e8f4fd;
+    --tip-border: #64b5f6;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    padding: 24px 16px;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+  .card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  }
+  h1 { font-size: 1.7rem; margin-bottom: 8px; }
+  h2 { font-size: 1.25rem; margin-bottom: 14px; color: var(--accent); }
+  h3 { color: var(--accent); margin-bottom: 6px; }
+  .badge {
+    display: inline-block;
+    background: var(--accent-light);
+    color: var(--accent);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin: 4px 6px 4px 0;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+  }
+  th, td { padding: 9px 12px; text-align: left; border-bottom: 1px solid #eee5da; }
+  th { background: var(--accent-light); color: var(--accent); }
+  tr.total td { border-bottom: none; font-weight: 700; background: #f7ede6; }
+  ol.steps { counter-reset: step; list-style: none; }
+  ol.steps li {
+    counter-increment: step;
+    position: relative;
+    padding: 10px 0 10px 52px;
+  }
+  ol.steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0; top: 10px;
+    width: 34px; height: 34px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+  }
+  ol.steps li strong { color: var(--accent); }
+  .macro-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 12px;
+    margin-top: 12px;
+  }
+  .macro-box {
+    border-radius: 12px;
+    padding: 14px;
+    text-align: center;
+    color: #fff;
+  }
+  .macro-box .num { font-size: 1.3rem; font-weight: 800; display: block; }
+  .macro-box .lbl { font-size: 0.78rem; opacity: 0.92; }
+  .kcal { background: #e8590c; }
+  .prot { background: var(--protein); }
+  .carb { background: #1971c2; }
+  .fat  { background: #f08c00; }
+  .note {
+    background: var(--warn);
+    border-left: 4px solid var(--warn-border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-size: 0.95rem;
+  }
+  .tip {
+    background: var(--tip);
+    border-left: 4px solid var(--tip-border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-size: 0.95rem;
+  }
+  .small { font-size: 0.85rem; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- CABECERA -->
+  <div class="card">
+    <h1>🍫 Tarta de Milka sin horno</h1>
+    <span class="badge">✅ Fácil</span>
+    <span class="badge">🚫 Sin horno</span>
+    <span class="badge">🍰 8-10 porciones</span>
+    <span class="badge">❄️ 6-8 h de nevera</span>
+    <p style="margin-top:12px; color:var(--muted);">
+      Tarta fría de chocolate Milka con base de galleta, relleno cremoso de queso y nata, y cobertura de chocolate. Sin encender el horno.
+    </p>
+  </div>
+
+  <!-- INGREDIENTES -->
+  <div class="card">
+    <h2>🛒 Ingredientes</h2>
+    <h3>🍪 Para la base</h3>
+    <table>
+      <tr><th>Ingrediente</th><th>Cantidad</th></tr>
+      <tr><td>Galletas María</td><td>200 g</td></tr>
+      <tr><td>Mantequilla</td><td>90 g</td></tr>
+    </table>
+    <h3 style="margin-top:18px;">🍫 Para el relleno</h3>
+    <table>
+      <tr><th>Ingrediente</th><th>Cantidad</th></tr>
+      <tr><td>Chocolate Milka con leche</td><td>300 g</td></tr>
+      <tr><td>Nata para montar</td><td>400 ml</td></tr>
+      <tr><td>Queso crema</td><td>300 g</td></tr>
+      <tr><td>Azúcar</td><td>80 g</td></tr>
+      <tr><td>Gelatina neutra</td><td>5 hojas</td></tr>
+    </table>
+    <h3 style="margin-top:18px;">🎀 Para decorar</h3>
+    <table>
+      <tr><th>Ingrediente</th><th>Cantidad</th></tr>
+      <tr><td>Chocolate Milka</td><td>100 g</td></tr>
+      <tr><td>Trozos de chocolate Milka</td><td>al gusto</td></tr>
+      <tr><td>Virutas de chocolate</td><td>al gusto</td></tr>
+    </table>
+  </div>
+
+  <!-- PREPARACIÓN -->
+  <div class="card">
+    <h2>👩‍🍳 Preparación</h2>
+    <h3>1️⃣ La base</h3>
+    <ol class="steps">
+      <li>Tritura las galletas.</li>
+      <li>Derrite la mantequilla.</li>
+      <li>Mezcla todo y colócalo en un molde.</li>
+      <li>Déjalo en la nevera <strong>20 minutos</strong>.</li>
+    </ol>
+    <h3 style="margin-top:18px;">2️⃣ El relleno</h3>
+    <ol class="steps">
+      <li>Derrite los 300 g de chocolate Milka <strong>al baño maría o en el microondas en intervalos cortos</strong>.</li>
+      <li>Bate el queso crema con el azúcar.</li>
+      <li>Añade el chocolate derretido.</li>
+      <li>Monta la nata y mézclala suavemente.</li>
+      <li>Incorpora la gelatina hidratada y disuelta siguiendo las instrucciones del envase.</li>
+    </ol>
+    <h3 style="margin-top:18px;">3️⃣ Montaje</h3>
+    <ol class="steps">
+      <li>Vierte la mezcla sobre la base.</li>
+      <li>Alisa la superficie.</li>
+      <li>Déjala en la nevera durante <strong>6-8 horas</strong>.</li>
+    </ol>
+    <h3 style="margin-top:18px;">4️⃣ Decoración</h3>
+    <ol class="steps">
+      <li>Derrite los 100 g de Milka.</li>
+      <li>Extiéndelos por encima.</li>
+      <li>Añade trocitos de chocolate y virutas.</li>
+    </ol>
+  </div>
+
+  <!-- INFO NUTRICIONAL -->
+  <div class="card">
+    <h2>📊 Ingredientes y valores nutricionales</h2>
+    <p class="small" style="margin-bottom:12px;">Son valores aproximados, porque dependen de las marcas de nata, queso crema y chocolate. He contado los 300 g de Milka del relleno y los 100 g de la cobertura.</p>
+    <table>
+      <tr><th>Ingrediente</th><th>Cantidad</th><th>kcal</th></tr>
+      <tr><td>Galletas María</td><td>200 g</td><td>880</td></tr>
+      <tr><td>Mantequilla</td><td>90 g</td><td>646</td></tr>
+      <tr><td>Chocolate Milka</td><td>400 g</td><td>2.140</td></tr>
+      <tr><td>Nata para montar</td><td>400 ml</td><td>1.480</td></tr>
+      <tr><td>Queso crema</td><td>300 g</td><td>750</td></tr>
+      <tr><td>Azúcar</td><td>80 g</td><td>320</td></tr>
+      <tr><td>Gelatina</td><td>5 hojas (10 g)</td><td>35</td></tr>
+      <tr class="total"><td>TOTAL</td><td>1.480 g</td><td>6.251 kcal</td></tr>
+    </table>
+
+    <h3 style="margin-top:22px;">🍰 Resultado nutricional estimado</h3>
+    <div class="macro-grid">
+      <div class="macro-box kcal"><span class="num">6.251</span><span class="lbl">🔥 kcal · tarta completa</span></div>
+      <div class="macro-box prot"><span class="num">1.480 g</span><span class="lbl">⚖️ peso antes de refrigerar</span></div>
+    </div>
+
+    <h3 style="margin-top:24px;">📊 Por 100 g</h3>
+    <table>
+      <tr><th>Nutriente</th><th>Cantidad</th></tr>
+      <tr><td>🔥 Calorías</td><td>422 kcal</td></tr>
+      <tr><td>💪 Proteínas</td><td>6,5 g</td></tr>
+      <tr><td>🍞 Hidratos de carbono</td><td>34 g</td></tr>
+      <tr><td>🥑 Grasas</td><td>29 g</td></tr>
+    </table>
+
+    <h3 style="margin-top:24px;">🍰 Por ración (si divides en 10 porciones)</h3>
+    <table>
+      <tr><th>Nutriente</th><th>Por ración (~148 g)</th></tr>
+      <tr><td>🔥 Calorías</td><td>625 kcal</td></tr>
+      <tr><td>💪 Proteínas</td><td>9,6 g</td></tr>
+      <tr><td>🍞 Hidratos</td><td>50 g</td></tr>
+      <tr><td>🥑 Grasas</td><td>43 g</td></tr>
+    </table>
+    <div class="note">
+      🍫 <strong>Una observación:</strong> es una tarta bastante calórica, principalmente por la combinación de chocolate Milka, mantequilla y nata. El peso final real puede variar ligeramente.
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
