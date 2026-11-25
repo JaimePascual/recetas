@@ -35,6 +35,7 @@ window.RECIPES = [
   "pudding-chocolate-hiperproteico.html",
   "salsa-carolina-reaper-ahumada.html",
   "salsa-carolina-reaper-tropical-sun.html",
+  "tarta-milka-sin-horno-supercalórica.html",
   "tarta-queso-la-vina-Jaime-proteica.html",
   "tarta-queso-la-vina-SARA.html",
   "tarta-queso-matty-jaime-chocolate.html",
