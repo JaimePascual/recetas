@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🟢 Bolitas de calabacín al horno (más calóricas y menos proteicas)</title>
+<style>
+  :root {
+    --bg: #f7f4ef;
+    --card: #ffffff;
+    --text: #2b2b2b;
+    --muted: #6b6b6b;
+    --accent: #a8722c;
+    --accent-light: #f7ecd4;
+    --protein: #2e7d32;
+    --warn: #fff8e1;
+    --warn-border: #f0c36d;
+    --tip: #e8f4fd;
+    --tip-border: #64b5f6;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    padding: 24px 16px;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+  .card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  }
+  h1 { font-size: 1.7rem; margin-bottom: 8px; }
+  h2 { font-size: 1.25rem; margin-bottom: 14px; color: var(--accent); }
+  h3 { color: var(--accent); margin-bottom: 6px; }
+  .badge {
+    display: inline-block;
+    background: var(--accent-light);
+    color: var(--accent);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin: 4px 6px 4px 0;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+  }
+  th, td { padding: 9px 12px; text-align: left; border-bottom: 1px solid #eee5da; }
+  th { background: var(--accent-light); color: var(--accent); }
+  tr:last-child td { border-bottom: none; }
+  ol.steps { counter-reset: step; list-style: none; }
+  ol.steps li {
+    counter-increment: step;
+    position: relative;
+    padding: 10px 0 10px 52px;
+  }
+  ol.steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0; top: 10px;
+    width: 34px; height: 34px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+  }
+  ol.steps li strong { color: var(--accent); }
+  .macro-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 12px;
+    margin-top: 12px;
+  }
+  .macro-box {
+    border-radius: 12px;
+    padding: 14px;
+    text-align: center;
+    color: #fff;
+  }
+  .macro-box .num { font-size: 1.3rem; font-weight: 800; display: block; }
+  .macro-box .lbl { font-size: 0.78rem; opacity: 0.92; }
+  .kcal { background: #e8590c; }
+  .prot { background: var(--protein); }
+  .carb { background: #1971c2; }
+  .fat  { background: #f08c00; }
+  .note {
+    background: var(--warn);
+    border-left: 4px solid var(--warn-border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-size: 0.95rem;
+  }
+  .tip {
+    background: var(--tip);
+    border-left: 4px solid var(--tip-border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-size: 0.95rem;
+  }
+  .suggest-box {
+    border: 2px solid var(--accent-light);
+    border-radius: 12px;
+    padding: 16px;
+  }
+  .suggest-box ul { margin-left: 1.2rem; margin-top: 6px; }
+  .suggest-box li { margin-bottom: 6px; font-size: 0.95rem; }
+  .small { font-size: 0.85rem; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- CABECERA -->
+  <div class="card">
+    <h1>🟢 Bolitas de calabacín al horno <span class="small">(más calóricas y menos proteicas)</span></h1>
+    <span class="badge">🔥 Horno 200 °C</span>
+    <span class="badge">⏱️ 20-25 min</span>
+    <span class="badge">🍡 20-25 bolitas</span>
+    <span class="badge">🧀 Con parmesano</span>
+    <p style="margin-top:12px; color:var(--muted);">
+      La versión clásica de las bolitas de calabacín: parmesano, pan rallado y huevo. Más calóricas y menos proteicas que la versión con cottage y whey, pero muy sabrosas.
+    </p>
+  </div>
+
+  <!-- INGREDIENTES -->
+  <div class="card">
+    <h2>🧾 Ingredientes <span class="small">(para unas 20-25 bolitas, dependiendo del tamaño)</span></h2>
+    <table>
+      <tr><th>Ingrediente</th><th>Cantidad</th></tr>
+      <tr><td>🟢 Calabacines medianos</td><td>800 g (2 unidades)</td></tr>
+      <tr><td>🥚 Huevo grande</td><td>1 ud (50 g)</td></tr>
+      <tr><td>🧀 Queso parmesano rallado</td><td>50 g</td></tr>
+      <tr><td>🍞 Pan rallado</td><td>35 g</td></tr>
+      <tr><td>🧄 Ajo</td><td>1 diente (3 g)</td></tr>
+      <tr><td>🧅 Cebolla picada <span class="small">(opcional)</span></td><td>20 g</td></tr>
+      <tr><td>🌿 Perejil fresco picado</td><td>4 g</td></tr>
+      <tr><td>🧂 Sal</td><td>al gusto</td></tr>
+      <tr><td>🌑 Pimienta negra</td><td>al gusto</td></tr>
+      <tr><td>🫒 Aceite de oliva en spray</td><td>~3 g</td></tr>
+    </table>
+    <div class="tip">
+      📐 <strong>Conversión de las medidas americanas:</strong>
+      <ul style="margin-left:1.2rem; margin-top:6px;">
+        <li>½ taza de queso rallado ≈ 50 g</li>
+        <li>⅓ taza de pan rallado ≈ 35 g</li>
+        <li>2 cucharadas de cebolla picada ≈ 20 g</li>
+        <li>1 cucharada de perejil ≈ 4 g</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ELABORACIÓN -->
+  <div class="card">
+    <h2>👨‍🍳 Elaboración</h2>
+    <ol class="steps">
+      <li><strong>Preparar los calabacines.</strong> Lava los calabacines y rállalos con un rallador grueso. Colócalos en un colador, añade un poco de sal y deja reposar 10 minutos para que suelten parte del agua. Después, exprímelos muy bien con las manos o con un paño de cocina limpio. <em>Es importante eliminar la mayor cantidad de líquido posible para conseguir unas bolitas consistentes y evitar que queden blandas.</em></li>
+      <li><strong>Preparar la mezcla.</strong> En un recipiente grande, incorpora el calabacín escurrido, el huevo, el parmesano, el pan rallado, el ajo picado, la cebolla y el perejil. Añade pimienta negra y, si es necesario, un poco más de sal. Mezcla bien hasta conseguir una masa homogénea que permita formar bolitas sin deshacerse.</li>
+      <li><strong>Formar las bolitas.</strong> Coge pequeñas porciones de masa y dales forma redondeada, aproximadamente del tamaño de una nuez. Colócalas sobre una bandeja de horno cubierta con papel vegetal, dejando cierta separación entre ellas.</li>
+      <li><strong>Hornear.</strong> Precalienta el horno a 200 °C, con calor arriba y abajo. Pulveriza ligeramente las bolitas con aceite de oliva y hornéalas durante 20-25 minutos. A mitad de cocción, dales la vuelta para que se doren uniformemente. Si quieres un acabado más crujiente, activa el gratinador los últimos 2-3 minutos, vigilando que no se quemen.</li>
+      <li><strong>Servir.</strong> Retira del horno cuando estén doradas y ligeramente crujientes por fuera. Déjalas reposar unos minutos antes de servir para que adquieran una consistencia más firme.</li>
+    </ol>
+  </div>
+
+  <!-- INFO NUTRICIONAL -->
+  <div class="card">
+    <h2>📊 Información nutricional aproximada</h2>
+    <p class="small" style="margin-bottom:12px;">He utilizado los siguientes valores de referencia: parmesano, pan rallado convencional, un huevo de 50 g y 3 g de aceite de oliva.</p>
+    <h3>🍽️ Receta completa · estimación</h3>
+    <div class="macro-grid">
+      <div class="macro-box kcal"><span class="num">575</span><span class="lbl">🔥 kcal</span></div>
+      <div class="macro-box prot"><span class="num">39 g</span><span class="lbl">💪 proteínas</span></div>
+      <div class="macro-box carb"><span class="num">54 g</span><span class="lbl">🍞 hidratos</span></div>
+      <div class="macro-box fat"><span class="num">27 g</span><span class="lbl">🥑 grasas</span></div>
+    </div>
+
+    <h3 style="margin-top:24px;">📊 Estimación por 100 g de producto terminado</h3>
+    <p class="small" style="margin-bottom:12px;">Suponiendo un peso final aproximado de 650 g después del horneado.</p>
+    <table>
+      <tr><th>Nutriente</th><th>Por 100 g</th></tr>
+      <tr><td>🔥 Calorías</td><td>88 kcal</td></tr>
+      <tr><td>💪 Proteínas</td><td>6 g</td></tr>
+      <tr><td>🍞 Hidratos</td><td>8,3 g</td></tr>
+      <tr><td>🥑 Grasas</td><td>4,1 g</td></tr>
+    </table>
+    <div class="note">
+      ⚖️ <strong>Importante:</strong> el peso final es una estimación porque depende de cuánto agua elimines al escurrir los calabacines y de cuánto pierdan durante el horneado. Para obtener los valores reales por 100 g, habría que pesar todas las bolitas una vez cocinadas.
+    </div>
+  </div>
+
+  <!-- SUGERENCIAS -->
+  <div class="card">
+    <h2>💡 Una sugerencia para mejorar la receta</h2>
+    <div class="suggest-box">
+      <p>Si buscas reducir calorías y aumentar la proporción de proteínas, hay margen para experimentar:</p>
+      <ul>
+        <li>Sustituir parte del parmesano por <strong>cottage 0%</strong> o queso fresco batido 0%.</li>
+        <li>Utilizar <strong>pan rallado integral</strong> o reducir ligeramente su cantidad.</li>
+        <li>Añadir un poco de <strong>whey neutra</strong> si necesitas mejorar la proporción proteica, aunque habría que ajustar la textura.</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
