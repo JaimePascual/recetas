@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>☕ Mousse de tiramisú hiperproteica con whey y sin bizcocho</title>
+<style>
+  :root {
+    --bg: #f7f4ef;
+    --card: #ffffff;
+    --text: #2b2b2b;
+    --muted: #6b6b6b;
+    --accent: #8a5a2b;
+    --accent-light: #f3e7d8;
+    --protein: #2e7d32;
+    --warn: #fff8e1;
+    --warn-border: #f0c36d;
+    --tip: #e8f4fd;
+    --tip-border: #64b5f6;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    padding: 24px 16px;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+  .card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  }
+  h1 { font-size: 1.7rem; margin-bottom: 8px; }
+  h2 { font-size: 1.25rem; margin-bottom: 14px; color: var(--accent); }
+  h3 { color: var(--accent); margin-bottom: 6px; }
+  .badge {
+    display: inline-block;
+    background: var(--accent-light);
+    color: var(--accent);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin: 4px 6px 4px 0;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+  }
+  th, td { padding: 9px 12px; text-align: left; border-bottom: 1px solid #eee5da; }
+  th { background: var(--accent-light); color: var(--accent); }
+  tr.total td { border-bottom: none; font-weight: 700; background: #f8f1e9; }
+  tr.hl td { background: #f1f8e9; }
+  ol.steps { counter-reset: step; list-style: none; }
+  ol.steps li {
+    counter-increment: step;
+    position: relative;
+    padding: 10px 0 10px 52px;
+  }
+  ol.steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0; top: 10px;
+    width: 34px; height: 34px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+  }
+  ol.steps li strong { color: var(--accent); }
+  .macro-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 12px;
+    margin-top: 12px;
+  }
+  .macro-box {
+    border-radius: 12px;
+    padding: 14px;
+    text-align: center;
+    color: #fff;
+  }
+  .macro-box .num { font-size: 1.3rem; font-weight: 800; display: block; }
+  .macro-box .lbl { font-size: 0.78rem; opacity: 0.92; }
+  .kcal { background: #e8590c; }
+  .prot { background: var(--protein); }
+  .carb { background: #1971c2; }
+  .fat  { background: #f08c00; }
+  .note {
+    background: var(--warn);
+    border-left: 4px solid var(--warn-border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-size: 0.95rem;
+  }
+  .tip {
+    background: var(--tip);
+    border-left: 4px solid var(--tip-border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-size: 0.95rem;
+  }
+  .tip ul { margin-left: 1.2rem; margin-top: 6px; }
+  .tip li { margin-bottom: 6px; }
+  .small { font-size: 0.85rem; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- CABECERA -->
+  <div class="card">
+    <h1>☕ Mousse de tiramisú hiperproteica con whey y sin bizcocho</h1>
+    <span class="badge">⏱️ 25 min preparación</span>
+    <span class="badge">❄️ 8-12 h refrigeración</span>
+    <span class="badge">🍮 ~1.054 g</span>
+    <span class="badge">💪 81 kcal / 100 g</span>
+    <p style="margin-top:12px; color:var(--muted);">
+      Versión ligera del tiramisú tradicional, sin bizcochos, con una textura cremosa y aireada gracias a las claras montadas. La proteína whey de vainilla aumenta el aporte proteico, mejora la consistencia y complementa el sabor del café y el cacao.
+    </p>
+  </div>
+
+  <!-- INGREDIENTES -->
+  <div class="card">
+    <h2>🧾 Ingredientes</h2>
+    <table>
+      <tr><th>Ingrediente</th><th>Cantidad</th></tr>
+      <tr><td>🧀 Queso fresco batido 0%</td><td>500 g</td></tr>
+      <tr><td>🧀 Queso crema normal</td><td>100 g</td></tr>
+      <tr><td>🥚 Claras de huevo pasteurizadas</td><td>200 g</td></tr>
+      <tr><td>🥚 Huevos enteros pasteurizados</td><td>2 uds (100 g)</td></tr>
+      <tr><td>💪 Proteína whey de vainilla</td><td>30 g (1 scoop)</td></tr>
+      <tr><td>🍬 Eritritol pulverizado</td><td>60 g</td></tr>
+      <tr><td>🍫 Cacao puro desgrasado Hacendado</td><td>10 g</td></tr>
+      <tr><td>☕ Café muy concentrado</td><td>50 ml</td></tr>
+      <tr><td>🧊 Gelatina neutra en láminas</td><td>4 g</td></tr>
+      <tr><td>🌼 Esencia de vainilla <span class="small">(opcional)</span></td><td>5 ml</td></tr>
+      <tr><td>🧂 Sal</td><td>1 pizca</td></tr>
+    </table>
+    <div class="tip">
+      ⚠️ <strong>Utiliza huevos y claras pasteurizados</strong> aptos para consumir sin cocción.
+    </div>
+  </div>
+
+  <!-- ELABORACIÓN -->
+  <div class="card">
+    <h2>👨‍🍳 Elaboración</h2>
+    <ol class="steps">
+      <li><strong>Preparar el café.</strong> Elabora 50 ml de café muy concentrado, sin añadir azúcar.</li>
+      <li><strong>Hidratar la gelatina.</strong> Introduce las láminas en agua fría durante 5 minutos. Escúrrelas y disuélvelas en el café todavía caliente. Deja templar.</li>
+      <li><strong>Separar los huevos.</strong> Reserva las yemas y junta las claras de los dos huevos con los 200 g de claras pasteurizadas.</li>
+      <li><strong>Batir las yemas.</strong> Mézclalas con 40 g de eritritol pulverizado hasta conseguir una crema homogénea y ligeramente espumosa.</li>
+      <li><strong>Preparar la crema de queso.</strong> Incorpora los 100 g de queso crema y los 500 g de queso fresco batido 0%. Bate hasta eliminar los grumos.</li>
+      <li><strong>Añadir la proteína whey.</strong> Incorpora los 30 g de proteína de vainilla poco a poco, batiendo hasta que quede completamente integrada.</li>
+      <li><strong>Incorporar el café.</strong> Añade progresivamente el café templado con la gelatina disuelta y mezcla bien.</li>
+      <li><strong>Montar las claras.</strong> Bate las claras con una pizca de sal y los 20 g restantes de eritritol hasta alcanzar el punto de nieve.</li>
+      <li><strong>Integrar las claras.</strong> Incorpóralas a la crema de queso en tres tandas, utilizando una espátula y movimientos envolventes para conservar el máximo volumen.</li>
+      <li><strong>Montar el tiramisú.</strong> Vierte la mitad de la mousse en un recipiente, espolvorea 3 g de cacao y cubre con la otra mitad.</li>
+      <li><strong>Refrigerar.</strong> Deja reposar en la nevera entre 8 y 12 horas, preferiblemente de un día para otro.</li>
+      <li><strong>Decorar y servir.</strong> Espolvorea los 7 g restantes de cacao desgrasado con ayuda de un colador justo antes de consumir.</li>
+    </ol>
+  </div>
+
+  <!-- INFO NUTRICIONAL -->
+  <div class="card">
+    <h2>📊 Calorías y macronutrientes</h2>
+    <p class="small" style="margin-bottom:12px;">Desglose por ingrediente (calorías y proteínas):</p>
+    <table>
+      <tr><th>Ingrediente</th><th>Calorías</th><th>Proteínas</th></tr>
+      <tr><td>Queso batido 0%</td><td>230 kcal</td><td>40 g</td></tr>
+      <tr><td>Queso crema</td><td>225 kcal</td><td>5,5 g</td></tr>
+      <tr><td>Claras de huevo</td><td>92 kcal</td><td>21 g</td></tr>
+      <tr><td>Huevos enteros</td><td>143 kcal</td><td>12,6 g</td></tr>
+      <tr><td>Whey de vainilla</td><td>114 kcal</td><td>24 g</td></tr>
+      <tr><td>Cacao desgrasado</td><td>32 kcal</td><td>2,5 g</td></tr>
+      <tr><td>Café</td><td>1 kcal</td><td>0 g</td></tr>
+      <tr><td>Gelatina neutra</td><td>14 kcal</td><td>3,4 g</td></tr>
+      <tr><td>Eritritol</td><td>0 kcal</td><td>0 g</td></tr>
+      <tr class="total"><td>TOTAL</td><td>851 kcal</td><td>109 g</td></tr>
+    </table>
+    <p class="small" style="margin:12px 0;">Peso total teórico de la receta: <strong>1.054 g</strong>. Distribución energética aproximada: <strong>51 % proteínas, 14 % hidratos y 35 % grasas</strong>.</p>
+
+    <h3>📊 Valores nutricionales</h3>
+    <table>
+      <tr><th>Valores nutricionales</th><th>Total receta</th><th>Por 100 g</th><th>Por 200 g</th></tr>
+      <tr><td>🔥 Calorías</td><td>851 kcal</td><td>80,7 kcal</td><td>161,5 kcal</td></tr>
+      <tr><td>💪 Proteínas</td><td>109 g</td><td>10,3 g</td><td>20,7 g</td></tr>
+      <tr><td>🍞 Hidratos de carbono</td><td>31 g</td><td>2,9 g</td><td>5,9 g</td></tr>
+      <tr class="total"><td>🥑 Grasas</td><td>33 g</td><td>3,1 g</td><td>6,3 g</td></tr>
+    </table>
+    <div class="note">
+      📌 Valores estimados según la composición de los ingredientes, suponiendo que la whey aporta 80 g de proteína por cada 100 g. <strong>No se contabilizan los polialcoholes del eritritol</strong> ni el agua retenida por la gelatina.
+    </div>
+  </div>
+
+  <!-- COMPARATIVA -->
+  <div class="card">
+    <h2>⚖️ Comparativa con las otras versiones</h2>
+    <table>
+      <tr><th>Por 100 g</th><th>Calorías</th><th>Proteínas</th></tr>
+      <tr><td>Tiramisú tradicional (orientativo)</td><td>300 kcal</td><td>5 g</td></tr>
+      <tr><td>Tiramisú ligero con bizcochos</td><td>83 kcal</td><td>7,2 g</td></tr>
+      <tr><td>Mousse sin bizcochos ni whey</td><td>72 kcal</td><td>8,3 g</td></tr>
+      <tr class="hl"><td>🏆 Mousse sin bizcochos con whey</td><td>80,7 kcal</td><td>10,3 g</td></tr>
+    </table>
+  </div>
+
+  <!-- CONSEJOS -->
+  <div class="card">
+    <h2>💡 Consejos para mejorar el resultado</h2>
+    <div class="tip">
+      <ul>
+        <li><strong>No aumentaría la gelatina:</strong> mantendría los 4 g, puesto que la whey también aporta consistencia a la crema.</li>
+        <li><strong>Whey de vainilla, no de chocolate:</strong> respetará mejor el contraste de sabores entre la crema, el café y el cacao.</li>
+        <li><strong>Mantener el queso crema normal:</strong> sus grasas ayudan a contrarrestar la textura ligeramente seca que puede aportar la proteína en polvo.</li>
+        <li><strong>Consumir en un máximo de 48 horas,</strong> conservándolo siempre refrigerado.</li>
+      </ul>
+    </div>
+    <div class="note">
+      🏆 Con esta versión conseguimos un postre de más de un kilo, con <strong>109 g de proteína y solamente 851 kcal</strong> en toda la preparación, manteniendo los ingredientes que aportan cremosidad y sabor al tiramisú.
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

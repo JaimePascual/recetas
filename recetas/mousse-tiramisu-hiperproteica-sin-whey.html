@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>☕ Mousse de tiramisú hiperproteica sin bizcocho</title>
+<style>
+  :root {
+    --bg: #f7f4ef;
+    --card: #ffffff;
+    --text: #2b2b2b;
+    --muted: #6b6b6b;
+    --accent: #8a5a2b;
+    --accent-light: #f3e7d8;
+    --protein: #2e7d32;
+    --warn: #fff8e1;
+    --warn-border: #f0c36d;
+    --tip: #e8f4fd;
+    --tip-border: #64b5f6;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    padding: 24px 16px;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+  .card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  }
+  h1 { font-size: 1.7rem; margin-bottom: 8px; }
+  h2 { font-size: 1.25rem; margin-bottom: 14px; color: var(--accent); }
+  h3 { color: var(--accent); margin-bottom: 6px; }
+  .badge {
+    display: inline-block;
+    background: var(--accent-light);
+    color: var(--accent);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin: 4px 6px 4px 0;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+  }
+  th, td { padding: 9px 12px; text-align: left; border-bottom: 1px solid #eee5da; }
+  th { background: var(--accent-light); color: var(--accent); }
+  tr.total td { border-bottom: none; font-weight: 700; background: #f8f1e9; }
+  ol.steps { counter-reset: step; list-style: none; }
+  ol.steps li {
+    counter-increment: step;
+    position: relative;
+    padding: 10px 0 10px 52px;
+  }
+  ol.steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0; top: 10px;
+    width: 34px; height: 34px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+  }
+  ol.steps li strong { color: var(--accent); }
+  .macro-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 12px;
+    margin-top: 12px;
+  }
+  .macro-box {
+    border-radius: 12px;
+    padding: 14px;
+    text-align: center;
+    color: #fff;
+  }
+  .macro-box .num { font-size: 1.3rem; font-weight: 800; display: block; }
+  .macro-box .lbl { font-size: 0.78rem; opacity: 0.92; }
+  .kcal { background: #e8590c; }
+  .prot { background: var(--protein); }
+  .carb { background: #1971c2; }
+  .fat  { background: #f08c00; }
+  .note {
+    background: var(--warn);
+    border-left: 4px solid var(--warn-border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-size: 0.95rem;
+  }
+  .tip {
+    background: var(--tip);
+    border-left: 4px solid var(--tip-border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-size: 0.95rem;
+  }
+  .small { font-size: 0.85rem; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- CABECERA -->
+  <div class="card">
+    <h1>☕ Mousse de tiramisú hiperproteica sin bizcocho</h1>
+    <span class="badge">❄️ Sin horno</span>
+    <span class="badge">🍮 ~1.024 g finales</span>
+    <span class="badge">💪 85 g proteína</span>
+    <span class="badge">⏱️ 8-12 h de nevera</span>
+    <p style="margin-top:12px; color:var(--muted);">
+      Todo el sabor del tiramisú en una mousse cremosa y hiperproteica, sin bizcocho y sin huevos crudos: claras montadas, queso batido 0% y café.
+    </p>
+  </div>
+
+  <!-- INGREDIENTES -->
+  <div class="card">
+    <h2>🧾 Ingredientes</h2>
+    <table>
+      <tr><th>Ingrediente</th><th>Cantidad</th></tr>
+      <tr><td>🧀 Queso fresco batido 0%</td><td>500 g</td></tr>
+      <tr><td>🧀 Queso crema normal</td><td>100 g</td></tr>
+      <tr><td>🥚 Claras de huevo pasteurizadas</td><td>200 g</td></tr>
+      <tr><td>🥚 Huevos enteros pasteurizados</td><td>2 uds (100 g)</td></tr>
+      <tr><td>🍬 Eritritol pulverizado</td><td>60 g</td></tr>
+      <tr><td>🍫 Cacao puro desgrasado Hacendado</td><td>10 g</td></tr>
+      <tr><td>☕ Café muy concentrado</td><td>50 ml</td></tr>
+      <tr><td>🧊 Gelatina neutra</td><td>4 g</td></tr>
+      <tr><td>🌼 Esencia de vainilla <span class="small">(opcional)</span></td><td>5 ml</td></tr>
+      <tr><td>🧂 Sal</td><td>1 pizca</td></tr>
+    </table>
+    <div class="tip">
+      ⚠️ <strong>Utiliza huevos y claras pasteurizados</strong> aptos para consumir sin cocción.
+    </div>
+  </div>
+
+  <!-- ELABORACIÓN -->
+  <div class="card">
+    <h2>👨‍🍳 Elaboración</h2>
+    <ol class="steps">
+      <li>Prepara los <strong>50 ml de café muy concentrado</strong>.</li>
+      <li><strong>Hidrata la gelatina</strong> en agua fría durante 5 minutos, escúrrela y disuélvela en el café todavía caliente.</li>
+      <li>Separa las <strong>yemas de las claras</strong> de los dos huevos.</li>
+      <li>Bate las yemas con <strong>40 g de eritritol</strong> hasta conseguir una crema homogénea.</li>
+      <li>Incorpora el <strong>queso crema</strong>, el <strong>queso batido 0%</strong> y la vainilla.</li>
+      <li>Añade el <strong>café con la gelatina</strong> cuando esté templado, mezclándolo bien.</li>
+      <li>Monta los <strong>200 g de claras</strong> junto con las claras de los dos huevos y los <strong>20 g restantes de eritritol</strong>.</li>
+      <li>Incorpora las claras montadas a la crema mediante <strong>movimientos envolventes</strong>.</li>
+      <li>Vierte la mezcla en un recipiente. <strong>Si quieres simular las capas del tiramisú</strong>, vierte primero la mitad de la crema, espolvorea una fina capa de cacao y añade el resto.</li>
+      <li><strong>Refrigera durante 8-12 horas</strong> y espolvorea el cacao restante antes de servir.</li>
+    </ol>
+    <div class="tip">
+      💡 <strong>Truco de las capas:</strong> la mousse queda más bonita y más parecida al tiramisú si la viertes en dos tandas con cacao en medio. El cacao se asienta ligeramente y marca la "línea" del bizcocho.
+    </div>
+  </div>
+
+  <!-- INFO NUTRICIONAL -->
+  <div class="card">
+    <h2>📊 Calorías y macros</h2>
+    <p class="small" style="margin-bottom:12px;">Peso final aproximado: <strong>1.024 g</strong>, sin contar el agua que retenga la gelatina ni la vainilla opcional.</p>
+
+    <h3>🍽️ Valores nutricionales</h3>
+    <table>
+      <tr><th>Valores nutricionales</th><th>Total</th><th>Por 100 g</th><th>Ración de 200 g</th></tr>
+      <tr><td>🔥 Calorías</td><td>737 kcal</td><td>72 kcal</td><td>144 kcal</td></tr>
+      <tr><td>💪 Proteínas</td><td>85 g</td><td>8,3 g</td><td>16,6 g</td></tr>
+      <tr><td>🍞 Hidratos*</td><td>29 g</td><td>2,8 g</td><td>5,7 g</td></tr>
+      <tr class="total"><td>🥑 Grasas</td><td>31 g</td><td>3,0 g</td><td>6,1 g</td></tr>
+    </table>
+    <div class="note">
+      🍬 <strong>Nota:</strong> *estimaciones sin contabilizar los polialcoholes del eritritol. El eritritol aporta prácticamente 0 kcal netas y no se incluye en los hidratos.
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
