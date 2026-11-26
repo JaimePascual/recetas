@@ -1,6 +1,8 @@
 window.RECIPES = [
   "1huevo-2claras-o-60gramos.html",
   "Mermelada-cebolla-caramelizada-eritritol.html",
+  "Salsa-Big-Mac-casera-(versión-ligera).html",
+  "Salsa-Big-Mac-queso-fresco-batido-0.html",
   "Tarta-queso-y-cebolla-proteico.html",
   "Ternera guisada infantil en airfryer + olla rápida.html",
   "base-pizza-proteica-cottage-y-huevo.html",
