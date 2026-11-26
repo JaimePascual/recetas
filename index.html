@@ -26,6 +26,10 @@
         .search-box:focus {
             border-color: #e67e22; box-shadow: 0 4px 15px rgba(230, 126, 34, 0.15);
         }
+        #searchInput { margin-bottom: 0.75rem; }
+        #advancedSearchInput { margin-bottom: 0.5rem; }
+        .search-status { text-align: center; color: #7f8c8d; font-size: 0.85rem; margin-bottom: 1.5rem; }
+        .search-status:empty { display: none; }
         .recipes-grid {
             display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 1rem;
@@ -53,6 +57,9 @@
         <p class="subtitle">Todas mis recetas en un solo lugar</p>
         <input type="text" class="search-box" id="searchInput"
                placeholder="🔍 Buscar receta..." autocomplete="off">
+        <input type="search" class="search-box" id="advancedSearchInput"
+               placeholder="🔎 Buscador avanzado (ingredientes, contenido...)" aria-label="Buscador avanzado" autocomplete="off">
+        <p class="search-status" id="searchStatus" role="status" aria-live="polite"></p>
         <div class="count" id="countLabel"></div>
         <div id="recipesContainer">
             <div class="loading">Cargando recetas...</div>
@@ -67,7 +74,13 @@
         const container = document.getElementById('recipesContainer');
         const searchInput = document.getElementById('searchInput');
         const countLabel = document.getElementById('countLabel');
+        const advancedInput = document.getElementById('advancedSearchInput');
+        const searchStatus = document.getElementById('searchStatus');
         let allRecipes = [];
+        let indexPromise = null;
+        let searchVersion = 0;
+        let debounceTimer;
+        let failed = 0;
 
         
 function loadRecipes() {
@@ -98,7 +111,7 @@ function loadRecipes() {
 
         function renderRecipes(recipes) {
             if (recipes.length === 0) {
-                container.innerHTML = '<div class="empty">No se encontraron recetas con ese nombre.</div>';
+                container.innerHTML = '<div class="empty">No se encontraron recetas con esa búsqueda.</div>';
                 updateCount(0);
                 return;
             }
@@ -125,17 +138,76 @@ function loadRecipes() {
             countLabel.textContent = `${n} receta${n !== 1 ? 's' : ''}`;
         }
 
-        // Búsqueda en tiempo real
-        searchInput.addEventListener('input', (e) => {
-            const query = e.target.value.toLowerCase().trim();
+        function normalize(text) {
+            return text.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+                .toLowerCase().replace(/\s+/g, ' ').trim();
+        }
+
+        // Descargar únicamente cuando se utiliza el buscador avanzado.
+        // Limitar a seis peticiones simultáneas y reutilizar el índice.
+        function buildIndex() {
+            if (indexPromise) return indexPromise;
+            let next = 0, completed = 0;
+            failed = 0;
+            async function worker() {
+                while (next < allRecipes.length) {
+                    const recipe = allRecipes[next++];
+                    try {
+                        const response = await fetch(`${RECIPES_FOLDER}/${encodeURIComponent(recipe.name)}`);
+                        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                        const doc = new DOMParser().parseFromString(await response.text(), 'text/html');
+                        doc.querySelectorAll('script, style, noscript, template, [hidden]').forEach(el => el.remove());
+                        const walker = doc.createTreeWalker(doc.body, NodeFilter.SHOW_TEXT);
+                        const parts = [];
+                        while (walker.nextNode()) parts.push(walker.currentNode.nodeValue);
+                        recipe.content = normalize(parts.join(' '));
+                    } catch (error) {
+                        recipe.content = null;
+                        failed++;
+                        console.warn('No se pudo leer:', recipe.name, error);
+                    }
+                    completed++;
+                    if (advancedInput.value.trim()) {
+                        searchStatus.textContent = `Analizando recetas: ${completed} de ${allRecipes.length}…`;
+                    }
+                }
+            }
+            indexPromise = Promise.all(Array.from({length: Math.min(6, allRecipes.length)}, worker));
+            return indexPromise;
+        }
+
+        // Los dos buscadores son independientes: al usar uno se limpia el otro.
+        searchInput.addEventListener('input', () => {
+            ++searchVersion;
+            clearTimeout(debounceTimer);
+            advancedInput.value = '';
+            searchStatus.textContent = '';
+            const query = normalize(searchInput.value);
+            renderRecipes(allRecipes.filter(r => normalize(r.name).includes(query)));
+        });
+
+        advancedInput.addEventListener('input', () => {
+            const version = ++searchVersion;
+            clearTimeout(debounceTimer);
+            searchInput.value = '';
+            const query = normalize(advancedInput.value);
             if (!query) {
+                searchStatus.textContent = '';
                 renderRecipes(allRecipes);
                 return;
             }
-            const filtered = allRecipes.filter(r =>
-                r.name.toLowerCase().includes(query)
-            );
-            renderRecipes(filtered);
+            searchStatus.textContent = 'Buscando en el contenido de las recetas…';
+            debounceTimer = setTimeout(async () => {
+                await buildIndex();
+                if (version !== searchVersion) return;
+                const terms = query.split(' ');
+                const matches = allRecipes.filter(r => r.content != null &&
+                    terms.every(term => r.content.includes(term)));
+                renderRecipes(matches);
+                searchStatus.textContent = failed
+                    ? `Búsqueda parcial: no se pudieron leer ${failed} recetas. Recarga la página para reintentar.`
+                    : `Búsqueda avanzada en ${allRecipes.length} recetas.`;
+            }, 200);
         });
 
         // Cargar al iniciar
