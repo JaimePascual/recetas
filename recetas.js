@@ -30,6 +30,8 @@ window.RECIPES = [
   "mayonesa-alta-proteina.html",
   "membrillo-sin-azucar-con-limón.html",
   "mermelada-manzana-proteica.html",
+  "mousse-tiramisu-hiperproteica-sin-whey.html",
+  "mousse-tiramisu-hiperproteica-whey.html",
   "natillas-proteicas-con-bebida-almendra.html",
   "pastel-francés-manzana-proteico.html",
   "pastel_yogurt_jamón_y_queso_proteina-Mayden.html",
